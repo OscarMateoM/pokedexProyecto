@@ -5,16 +5,13 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PokemonService {
-  private pokeapi = 'https://pokeapi.co/api/v2/pokemon?limit=151&offset=0.';
+  private pokeapi = 'https://pokeapi.co/api/v2/pokemon?limit=151&offset=0';
 
-  constructor(private http: HttpClient) {
-    
-  }
+  constructor(private http: HttpClient) {}
 
-  // Métodos y funcionalidades del servicio
-
-  getPokemonById(pokemonId: number) {
-    const url = `${this.pokeapi}/${pokemonId}`;
+  getPokemonList() {
+    const url = this.pokeapi;
     return this.http.get(url);
   }
 }
+
