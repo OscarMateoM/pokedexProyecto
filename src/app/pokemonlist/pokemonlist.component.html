@@ -1,6 +1,6 @@
 <div class="pokemon-grid">
   <div *ngFor="let pokemon of pokemonList" class="pokemon-card">
-    <img [src]="getPokemonImageUrl(pokemon.url)" alt="{{ pokemon.name }}">
+    <img [src]="getPokemonImageUrl(pokemon.url)">
     <div class="pokemon-name">{{ pokemon.name }}</div>
   </div>
 </div>

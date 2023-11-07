@@ -20,7 +20,7 @@ export class PokemonlistComponent implements OnInit {
 
   getPokemonImageUrl(pokemonUrl: string): string {
     const pokemonId = pokemonUrl.split('/').filter(segment => !!segment).pop();
-    return `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemonId}.png`;
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`;
   }
   
   
