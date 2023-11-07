@@ -1,6 +1,8 @@
 <ul>
-    <li *ngFor="let pokemon of pokemonList">
-      {{ pokemon.names }}
-    </li>
-  </ul>
+  <li *ngFor="let pokemon of pokemonList">
+    <img [src]="getPokemonImageUrl(pokemon.url)">
+    {{ pokemon.name }}
+  </li>
+</ul>
+
   
