@@ -2,6 +2,7 @@
   <div *ngFor="let pokemon of pokemonList" class="pokemon-card">
     <img [src]="getPokemonImageUrl(pokemon.url)">
     <div class="pokemon-name">{{ pokemon.name }}</div>
+        <div class="pokemon-name">{{ pokemon.types }}</div>
   </div>
 </div>
 

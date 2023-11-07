@@ -13,7 +13,7 @@ export class PokemonlistComponent implements OnInit {
 
   ngOnInit() {
     this.pokemonService.getPokemonList().subscribe((data: any) => {
-      console.log(data); // Agrega esta línea para ver los datos en la consola
+      console.log(data);
       this.pokemonList = data.results;
     });
   }

@@ -9,6 +9,9 @@
     text-align: center;
     border: 1px solid #ddd;
     padding: 10px;
+    background-image: url(../../assets/images/pokedex_fondo.jpg);
+    background-size: cover;
+    border-radius: 10px;
   }
   
   .pokemon-card img {
@@ -18,5 +21,12 @@
   
   .pokemon-name {
     margin-top: 5px;
+    font-weight: bold;
+    font-style: italic;
+    text-transform: uppercase;
+  }
+  .pokemon-type {
+    margin-top: 5px;
+    font-family: cursive;
   }
   
