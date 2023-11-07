@@ -13,7 +13,15 @@ export class PokemonlistComponent implements OnInit {
 
   ngOnInit() {
     this.pokemonService.getPokemonList().subscribe((data: any) => {
+      console.log(data); // Agrega esta línea para ver los datos en la consola
       this.pokemonList = data.results;
     });
   }
+
+  getPokemonImageUrl(pokemonUrl: string): string {
+    const pokemonId = pokemonUrl.split('/').filter(segment => !!segment).pop();
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`;
+  }
+  
+  
 }
