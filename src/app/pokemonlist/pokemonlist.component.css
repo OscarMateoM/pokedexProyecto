@@ -1,0 +1,22 @@
+.pokemon-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .pokemon-card {
+    margin: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  .pokemon-card img {
+    width: 100px; /* Ajusta el tamaño de la imagen según tus preferencias */
+    height: 100px; /* Ajusta el tamaño de la imagen según tus preferencias */
+  }
+  
+  .pokemon-name {
+    margin-top: 5px;
+  }
+  
