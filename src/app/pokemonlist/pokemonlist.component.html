@@ -1,7 +1,7 @@
 <div class="pokemon-grid">
   <div *ngFor="let pokemon of pokemonList" class="pokemon-card">
     <img [src]="getPokemonImageUrl(pokemon.url)" alt="{{ pokemon.name }}">
-    <div class="pokemon-id">Nº: {{ getPokemonId(pokemon.url) }}</div>
+    <div class="pokemon-id">Nº:{{ getPokemonId(pokemon.url) }}</div>
     <div class="pokemon-name">{{ pokemon.name }}</div>
     <div class="pokemon-types">
       <ng-container *ngFor="let type of pokemon.types">
