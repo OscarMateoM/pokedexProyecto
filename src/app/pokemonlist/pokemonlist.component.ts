@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../pokemon.service';
-import { ObservableInput, forkJoin } from 'rxjs';
+import { forkJoin } from 'rxjs';
 
 
 @Component({

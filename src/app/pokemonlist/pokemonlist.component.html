@@ -1,10 +1,10 @@
 <div class="pokemon-grid">
   <div *ngFor="let pokemon of pokemonList" class="pokemon-card">
-    <img [src]="getPokemonImageUrl(pokemon.url)" alt="{{ pokemon.name }}">
-    <div class="pokemon-id">Nº:{{ getPokemonId(pokemon.url) }}</div>
+      <img [src]="getPokemonImageUrl(pokemon.url)" alt="{{ pokemon.name }}">
+    <div class="pokemon-id">Nº:{{ getPokemonId(pokemon.url) | number: '3.0-0' }}</div>
     <div class="pokemon-name">{{ pokemon.name }}</div>
     <div class="pokemon-types">
-      <ng-container *ngFor="let type of pokemon.types">
+    <ng-container *ngFor="let type of pokemon.types">
         <img [src]="typeImageMappings[type]" alt="{{ type }}" style="width: 65px; height: 15px;">
     </ng-container>
     </div>
