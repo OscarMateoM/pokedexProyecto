@@ -25,15 +25,14 @@
     color: yellow;
     -webkit-text-stroke:1px black;
     letter-spacing: 4px;
-    border: 2px solid black;
     text-transform: uppercase;
   }
-  .pokemon-types {
-    margin-top: 5px;
+
+  .pokemon-id {
+    margin-top: 1px;
     font-family: 'PokemonSolid';
-    color: red;
-    -webkit-text-stroke:1px black;
-    letter-spacing: 4px;
-    text-transform: uppercase;
+    color: black;
+    letter-spacing: 2px;
   }
+
   

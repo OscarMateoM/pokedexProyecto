@@ -11,11 +11,32 @@ import { ObservableInput, forkJoin } from 'rxjs';
 export class PokemonlistComponent implements OnInit {
   public pokemonList: any[] = [];
 
-  constructor(private pokemonService: PokemonService) {}
+  typeImageMappings: { [key: string]: string } = {
+    normal: '../../assets/images/normal.png',
+    fire: '../../assets/images/fuego.png',
+    water: '../../assets/images/agua.png',
+    steel: '../../assets/images/acero.png',
+    bug: '../../assets/images/bicho.png',
+    dragon: '../../assets/images/dragon.png',
+    electric: '../../assets/images/electrico.png',
+    ghost: '../../assets/images/fantasma.png',
+    fairy: '../../assets/images/hada.png',
+    ice: '../../assets/images/hielo.png',
+    fighting: '../../assets/images/lucha.png',
+    grass: '../../assets/images/planta.png',
+    psychic: '../../assets/images/psiquico.png',
+    rock: '../../assets/images/roca.png',
+    dark: '../../assets/images/siniestro.png',
+    ground: '../../assets/images/tierra.png',
+    poison: '../../assets/images/veneno.png',
+    flying: '../../assets/images/volador.png',
+ };
+
+  constructor(
+    private pokemonService: PokemonService) {}
 
   ngOnInit() {
     const getPokemonList$ = this.pokemonService.getPokemonList();
-    const pokemonObservables: ObservableInput<any> = [];
 
     getPokemonList$.subscribe((data: any) => {
       this.pokemonList = data.results;
@@ -37,6 +58,11 @@ export class PokemonlistComponent implements OnInit {
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`;
   }
   
-  
+  getPokemonId(pokemonUrl: string): number {
+    const segments = pokemonUrl.split('/').filter(segment => !!segment);
+    const idSegment = segments[segments.length - 1];
+    const id = parseInt(idSegment, 10);
+    return id;
+  }
   
 }
