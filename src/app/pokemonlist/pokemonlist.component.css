@@ -1,9 +1,13 @@
+.pokemon-head {
+  text-align: center;
+}
+
 .pokemon-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+
   .pokemon-card {
     margin: 10px;
     text-align: center;

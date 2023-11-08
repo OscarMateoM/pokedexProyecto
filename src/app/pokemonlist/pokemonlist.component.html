@@ -1,3 +1,5 @@
+<div class="pokemon-head"> <h1><img src="../../assets/images/pokedex.png" alt="Pokédex"></h1> </div>
+
 <div class="pokemon-grid">
   <div *ngFor="let pokemon of pokemonList" class="pokemon-card">
       <img [src]="getPokemonImageUrl(pokemon.url)" alt="{{ pokemon.name }}">
