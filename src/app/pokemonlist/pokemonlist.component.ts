@@ -11,7 +11,7 @@ import { forkJoin } from 'rxjs';
 export class PokemonlistComponent implements OnInit {
   public pokemonList: any[] = [];
 
-  typeImageMappings: { [key: string]: string } = {
+  getTypes: { [key: string]: string } = {
     normal: '../../assets/images/normal.png',
     fire: '../../assets/images/fuego.png',
     water: '../../assets/images/agua.png',
