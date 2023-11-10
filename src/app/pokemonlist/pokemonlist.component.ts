@@ -57,6 +57,11 @@ export class PokemonlistComponent implements OnInit {
     const pokemonId = pokemonUrl.split('/').filter(segment => !!segment).pop();
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`;
   }
+
+  getPokemonImageShinyUrl(pokemonUrl: string): string {
+    const pokemonId = pokemonUrl.split('/').filter(segment => !!segment).pop();
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/${pokemonId}.png`;
+  }
   
   getPokemonId(pokemonUrl: string): number {
     const segments = pokemonUrl.split('/').filter(segment => !!segment);
