@@ -31,6 +31,17 @@ getPokemonDetails(id: string): Observable<any> {
   return this.http.get(url);
 }
 
+getPokemonDetailsById(id: number): Observable<any> {
+  const url = `${this.pokeapi}${id}/`;
+  return this.http.get(url);
+}
+
+getPokemonDetailsByName(name: string): Observable<any> {
+  const url = `${this.pokeapi}${name.toLowerCase()}`;
+  return this.http.get(url);
+}
+
+
   
 }
 

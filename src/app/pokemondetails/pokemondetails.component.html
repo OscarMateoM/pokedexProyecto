@@ -1,1 +1,10 @@
-<h1>pokemondetails works!</h1>
+<div *ngIf="pokemonDetails">
+    <h2>{{ pokemonDetails.name }}</h2>
+    <img [src]="pokemonImageUrl" alt="{{ pokemonName }}">
+    <img [src]="pokemonShinyImageUrl" alt="{{ pokemonName }}">
+    <p>ID: {{ pokemonDetails.id | number: '3.0-0' }}</p>
+    <p>Altura: {{ pokemonDetails.weight }} cm</p>
+    <p>Peso: {{ pokemonDetails.height }} g</p>
+    <p>Stats: {{ pokemonDetails.stats }}</p>
+  </div>
+  
