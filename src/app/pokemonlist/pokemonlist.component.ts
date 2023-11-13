@@ -31,6 +31,7 @@ export class PokemonlistComponent implements OnInit {
     poison: '../../assets/images/veneno.png',
     flying: '../../assets/images/volador.png',
  };
+  router: any;
 
   constructor(
     private pokemonService: PokemonService) {}
@@ -68,6 +69,5 @@ export class PokemonlistComponent implements OnInit {
     const idSegment = segments[segments.length - 1];
     const id = parseInt(idSegment, 10);
     return id;
-  }
-  
+  }  
 }
