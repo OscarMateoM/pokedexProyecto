@@ -3,6 +3,7 @@ import { PokemonService } from '../pokemon.service';
 import { forkJoin } from 'rxjs';
 
 
+
 @Component({
   selector: 'app-pokemonlist',
   templateUrl: './pokemonlist.component.html',
@@ -10,6 +11,8 @@ import { forkJoin } from 'rxjs';
 })
 export class PokemonlistComponent implements OnInit {
   public pokemonList: any[] = [];
+  public searchTerm: string = '';
+  public filteredPokemonList: any[] = [];
 
   typeImageMappings: { [key: string]: string } = {
     normal: '../../assets/images/normal.png',
@@ -40,6 +43,7 @@ export class PokemonlistComponent implements OnInit {
 
     getPokemonList$.subscribe((data: any) => {
       this.pokemonList = data.results;
+      
 
       const pokemonObservables = this.pokemonList.map((pokemon: any) => {
         return this.pokemonService.getPokemonTypes(pokemon.name);
@@ -49,15 +53,27 @@ export class PokemonlistComponent implements OnInit {
         this.pokemonList.forEach((pokemon, index) => {
           pokemon.types = pokemonTypes[index];
         });
+        this.filteredPokemonList = this.pokemonList;
       });
     });
   }
+ 
 
   getPokemonImageUrl(pokemonUrl: string): string {
     const pokemonId = pokemonUrl.split('/').filter(segment => !!segment).pop();
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`;
   }
-  
+  onSearch() {
+    // Filtra la lista de Pokémon en función del término de búsqueda
+    if (this.searchTerm) {
+      this.filteredPokemonList = this.pokemonList.filter((pokemon: any) =>
+        pokemon.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    } else {
+      // Si el término de búsqueda está vacío, muestra todos los Pokémon
+      this.filteredPokemonList = this.pokemonList;
+    }
+  }
   getPokemonId(pokemonUrl: string): number {
     const segments = pokemonUrl.split('/').filter(segment => !!segment);
     const idSegment = segments[segments.length - 1];
@@ -66,3 +82,4 @@ export class PokemonlistComponent implements OnInit {
   }
   
 }
+
