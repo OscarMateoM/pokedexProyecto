@@ -13,7 +13,7 @@ export class PokemonService {
   constructor(private http: HttpClient) {}
 
   getPokemonList() {
-    const url = `${this.pokeapi}?limit=493`;
+    const url = `${this.pokeapi}?limit=9`;
     return this.http.get(url);
   }
 
@@ -25,6 +25,12 @@ export class PokemonService {
       })
     );
 }
+
+getPokemonDetails(id: string): Observable<any> {
+  const url = `${this.pokeapi}${id}`;
+  return this.http.get(url);
+}
+
   
 }
 

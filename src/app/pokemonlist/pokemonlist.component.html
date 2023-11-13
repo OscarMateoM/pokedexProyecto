@@ -1,6 +1,7 @@
 <div class="pokemon-head"> <h1><img src="../../assets/images/pokedex.png" alt="Pokédex"></h1> </div>
 <div class="pokemon-grid">
-  <div *ngFor="let pokemon of pokemonList" class="pokemon-card">
+  <div *ngFor="let pokemon of pokemonList" class="pokemon-card" (click)="navigateToDetail(pokemon)">
+    <a [routerLink]="['/pokemon', getPokemonId(pokemon.url)]">
       <img [src]="getPokemonImageUrl(pokemon.url)" alt="{{ pokemon.name }}">
     <div class="pokemon-id">Nº:{{ getPokemonId(pokemon.url) | number: '3.0-0' }}</div>
     <div class="pokemon-name">{{ pokemon.name }}</div>
@@ -9,6 +10,7 @@
         <img [src]="getTypes[type]" alt="{{ type }}" style="width: 70px; height: 20px;">
     </ng-container>
     </div>
+    </a>
   </div>
   </div>
 
