@@ -39,4 +39,29 @@
     letter-spacing: 2px;
   }
 
-  
+  .boton-fire {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px; /* Reduce el tamaño del texto */
+    color: #ffffff;
+    padding-top: 10px; /* Ajusta el padding superior */
+    padding-bottom: 10px; /* Ajusta el padding inferior */
+    padding-left: 20px; /* Ajusta el padding izquierdo */
+    padding-right: 20px; /* Ajusta el padding derecho */
+    background-color: #ff0000; /* Cambia el color a rojo */
+  }
+
+  .container {
+    position: relative;
+  }
+
+  .search{
+    width: 350px;
+    padding: 10px;
+    padding-right: 35px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 1rem;
+  }
+

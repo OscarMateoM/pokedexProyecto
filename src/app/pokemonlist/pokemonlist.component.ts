@@ -13,8 +13,7 @@ export class PokemonlistComponent implements OnInit {
   public pokemonList: any[] = [];
   public searchTerm: string = '';
   public filteredPokemonList: any[] = [];
-  public selectedType: string = '';
-
+  selectedTypes: string[] = [];
   
 
   typeImageMappings: { [key: string]: string } = {
@@ -66,22 +65,38 @@ export class PokemonlistComponent implements OnInit {
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`;
   }
   onSearch() {
-    
-    if (this.searchTerm) {
-      this.filteredPokemonList = this.pokemonList.filter((pokemon: any) => {
-        const namePokemon = pokemon.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-        const typePokemon = !this.selectedType || pokemon.types.includes(this.selectedType);
-        return namePokemon && typePokemon;
-    }); 
+    this.applyFilters();
+  }
+  
+  filterByType(type: string) {
+    const index = this.selectedTypes.indexOf(type);
+    if (index > -1) {
+      this.selectedTypes.splice(index, 1);
     } else {
-      
-      this.filteredPokemonList = this.pokemonList;
+      this.selectedTypes.push(type);
+    }
+    this.applyFilters();
+  }
+  
+  applyFilters() {
+    let filteredByType = this.pokemonList;
+    if (this.selectedTypes.length > 0) {
+      filteredByType = this.pokemonList.filter((pokemon: any) => {
+        return this.selectedTypes.every(type => pokemon.types.includes(type));
+      });
+    }
+  
+    if (this.searchTerm) {
+      this.filteredPokemonList = filteredByType.filter((pokemon: any) => {
+        return pokemon.name.toLowerCase().includes(this.searchTerm.toLowerCase());
+      });
+    } else {
+      this.filteredPokemonList = filteredByType;
     }
   }
-  getType(type: string) {
-    this.selectedType = type;
-    this.onSearch();
-  }
+  
+  
+  
 
   getPokemonId(pokemonUrl: string): number {
     const segments = pokemonUrl.split('/').filter(segment => !!segment);
