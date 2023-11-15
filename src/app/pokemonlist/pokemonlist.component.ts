@@ -77,7 +77,44 @@ export class PokemonlistComponent implements OnInit {
     }
     this.applyFilters();
   }
-  
+
+  filterByGeneration(generation: number) {
+    let startId: number, endId: number;
+
+    switch (generation) {
+      case 1:
+        startId = 1;
+        endId = 151;
+        break;
+      case 2:
+        startId = 152;
+        endId = 251;
+        break;
+      case 3:
+        startId = 252;
+        endId = 386;
+        break;
+      case 4:
+        startId = 387;
+        endId = 493;
+        break;
+      default:
+        startId = 1;
+        endId = 151;
+        break;
+    }
+
+    const filteredByGenerationAndType = this.pokemonList.filter((pokemon: any) => {
+      const pokemonId = this.getPokemonId(pokemon.url);
+      const passesGenerationFilter = pokemonId >= startId && pokemonId <= endId;
+      const passesTypeFilter = this.selectedTypes.length === 0 || this.selectedTypes.every(type => pokemon.types.includes(type));
+
+      return passesGenerationFilter && passesTypeFilter;
+    });
+
+    this.filteredPokemonList = filteredByGenerationAndType;
+  }
+
   applyFilters() {
     let filteredByType = this.pokemonList;
     if (this.selectedTypes.length > 0) {

@@ -1,6 +1,9 @@
 .pokemon-head {
   text-align: center;
 }
+.search{
+  
+}
 
 .pokemon-grid {
     display: flex;
@@ -29,7 +32,7 @@
     color: yellow;
     -webkit-text-stroke:1px black;
     letter-spacing: 4px;
-    text-transform: capitalize;
+    text-transform: uppercase;
   }
 
   .pokemon-id {
@@ -42,14 +45,184 @@
   .boton-fire {
     text-decoration: none;
     font-weight: 600;
-    font-size: 16px; /* Reduce el tamaño del texto */
+    font-size: 16px; 
     color: #ffffff;
-    padding-top: 10px; /* Ajusta el padding superior */
-    padding-bottom: 10px; /* Ajusta el padding inferior */
-    padding-left: 20px; /* Ajusta el padding izquierdo */
-    padding-right: 20px; /* Ajusta el padding derecho */
-    background-color: #ff0000; /* Cambia el color a rojo */
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+    padding-left: 20px; 
+    padding-right: 20px; 
+    background-color: #ff0000; 
   }
+  .boton-normal {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: #A8A77A;
+  }
+  
+  .boton-fire {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: #EE8130;
+  }
+  
+  .boton-water {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: #6390F0;
+  }
+  
+  .boton-electric {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: #F7D02C;
+  }
+  
+  .boton-grass {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: #7AC74C;
+  }
+  
+  .boton-ice {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: #96D9D6;
+  }
+  
+  .boton-fighting {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: #C22E28;
+  }
+  
+  .boton-poison {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: #A33EA1;
+  }
+  
+  .boton-ground {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: #E2BF65;
+  }
+  
+  .boton-flying {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: #A98FF3;
+  }
+  
+  .boton-psychic {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: #F95587;
+  }
+  
+  .boton-bug {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: #A6B91A;
+  }
+  
+  .boton-rock {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: #B6A136;
+  }
+  
+  .boton-ghost {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: #735797;
+  }
+  
+  .boton-dragon {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: #6F35FC;
+  }
+  
+  .boton-dark {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: #705746;
+  }
+  
+  .boton-steel {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: #B7B7CE;
+  }
+  
+  .boton-fairy {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: #D685AD;
+  }
+  .boton-generation {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: #700000;
+  }
+  
 
   .container {
     position: relative;
@@ -65,3 +238,24 @@
     font-size: 1rem;
   }
 
+  .boton-normal:active,
+.boton-fire:active,
+.boton-water:active,
+.boton-grass:active,
+.boton-bug:active,
+.boton-dragon:active,
+.boton-electric:active,
+.boton-fairy:active,
+.boton-ground:active,
+.boton-rock:active,
+.boton-steel:active,
+.boton-ice:active,
+.boton-flying:active,
+.boton-dark:active,
+.boton-ghost:active,
+.boton-fighting:active,
+.boton-poison:active,
+.boton-psychic:active,
+.boton-generation:active {
+  border-width: 2px;
+}
