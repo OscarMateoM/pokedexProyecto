@@ -13,7 +13,7 @@ export class PokemonService {
   constructor(private http: HttpClient) {}
 
   getPokemonList() {
-    const url = `${this.pokeapi}?limit=9`;
+    const url = `${this.pokeapi}?limit=493`;
     return this.http.get(url);
   }
 

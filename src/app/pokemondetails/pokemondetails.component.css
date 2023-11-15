@@ -1,0 +1,32 @@
+.pokemon-details {
+    text-align: center;
+    font-family: 'PokemonSolid';
+    text-transform: capitalize;
+}
+
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.main-image, .shiny-image {
+    width: 25%;
+    height: auto;
+}
+
+.pokemon-info {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.pokemon-info td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.pokemon-info td:first-child {
+    font-weight: bold;
+}

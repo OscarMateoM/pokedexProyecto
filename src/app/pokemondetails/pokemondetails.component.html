@@ -1,10 +1,23 @@
-<div *ngIf="pokemonDetails">
-    <h2>{{ pokemonDetails.name }}</h2>
-    <img [src]="pokemonImageUrl" alt="{{ pokemonName }}">
-    <img [src]="pokemonShinyImageUrl" alt="{{ pokemonName }}">
-    <p>ID: {{ pokemonDetails.id | number: '3.0-0' }}</p>
-    <p>Altura: {{ pokemonDetails.weight }} cm</p>
-    <p>Peso: {{ pokemonDetails.height }} g</p>
-    <p>Stats: {{ pokemonDetails.stats }}</p>
+<div class="pokemon-details">
+  <h2>{{ pokemonDetails.name }}</h2>
+  <div class="image-grid">
+      <img class="main-image" [src]="pokemonImageUrl" alt="{{ pokemonName }}">
+      <img class="shiny-image" [src]="pokemonShinyImageUrl" alt="{{ pokemonName }}" loading="lazy">
   </div>
+  <table class="pokemon-info">
+      <tr>
+          <td>ID:</td>
+          <td>{{ pokemonDetails.id | number: '3.0-0' }}</td>
+      </tr>
+      <tr>
+          <td>Altura:</td>
+          <td>{{ pokemonDetails.weight }} cm</td>
+      </tr>
+      <tr>
+          <td>Peso:</td>
+          <td>{{ pokemonDetails.height }} g</td>
+      </tr>
+  </table>
+</div>
+
   
