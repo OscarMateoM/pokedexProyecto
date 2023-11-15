@@ -1,10 +1,11 @@
 <div class="pokemon-head"> <h1><img src="../../assets/images/pokedex.png" alt="Pokédex"></h1> </div>
-
-
+<div>
+  <input type="text" placeholder="Buscar Pokémon" [(ngModel)]="searchTerm" (input)="onSearch()">
+  <button [(ngModel)]="searchTerm" (keyup)="onSearch()" value='fire'>fire</button>
+  <button>water</button>
+</div>
 <div class="pokemon-grid">
-  <div>
-    <input type="text" placeholder="Buscar Pokémon" [(ngModel)]="searchTerm" (input)="onSearch()">
-  </div>
+  
   <div *ngFor="let pokemon of filteredPokemonList" class="pokemon-card">
       <img [src]="getPokemonImageUrl(pokemon.url)" alt="{{ pokemon.name }}">
     <div class="pokemon-id">Nº:{{ getPokemonId(pokemon.url) | number: '3.0-0' }}</div>

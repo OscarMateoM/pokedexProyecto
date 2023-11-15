@@ -13,6 +13,9 @@ export class PokemonlistComponent implements OnInit {
   public pokemonList: any[] = [];
   public searchTerm: string = '';
   public filteredPokemonList: any[] = [];
+  public selectedType: string = '';
+
+  
 
   typeImageMappings: { [key: string]: string } = {
     normal: '../../assets/images/normal.png',
@@ -57,23 +60,29 @@ export class PokemonlistComponent implements OnInit {
       });
     });
   }
- 
 
   getPokemonImageUrl(pokemonUrl: string): string {
     const pokemonId = pokemonUrl.split('/').filter(segment => !!segment).pop();
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`;
   }
   onSearch() {
-    // Filtra la lista de Pokémon en función del término de búsqueda
+    
     if (this.searchTerm) {
-      this.filteredPokemonList = this.pokemonList.filter((pokemon: any) =>
-        pokemon.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
+      this.filteredPokemonList = this.pokemonList.filter((pokemon: any) => {
+        const namePokemon = pokemon.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+        const typePokemon = !this.selectedType || pokemon.types.includes(this.selectedType);
+        return namePokemon && typePokemon;
+    }); 
     } else {
-      // Si el término de búsqueda está vacío, muestra todos los Pokémon
+      
       this.filteredPokemonList = this.pokemonList;
     }
   }
+  getType(type: string) {
+    this.selectedType = type;
+    this.onSearch();
+  }
+
   getPokemonId(pokemonUrl: string): number {
     const segments = pokemonUrl.split('/').filter(segment => !!segment);
     const idSegment = segments[segments.length - 1];
