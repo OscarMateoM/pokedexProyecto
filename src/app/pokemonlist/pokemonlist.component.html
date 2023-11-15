@@ -3,6 +3,7 @@
 <div class="container">
   <input class="search" type="text" placeholder="Buscar Pokémon..." [(ngModel)]="searchTerm" (input)="onSearch()">
   <br>
+  <br>
   <button (click)="filterByType('normal')"class="boton-normal">Normal</button>
   <button class="boton-fire"(click)="filterByType('fire')">Fire</button>
   <button (click)="filterByType('water')" class="boton-water">Water</button>
