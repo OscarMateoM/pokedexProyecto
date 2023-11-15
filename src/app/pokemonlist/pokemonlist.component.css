@@ -1,11 +1,13 @@
 .pokemon-head {
   text-align: center;
+  background-image: url(../../assets/images/fondomain.jpg);
 }
 
 .pokemon-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-image: url(../../assets/images/fondomain.jpg);
   }
 
   .pokemon-card {
