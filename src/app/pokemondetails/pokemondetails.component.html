@@ -1,0 +1,26 @@
+<div class="pokemon-head">
+    <h1><img src="../../assets/images/pokedex.png" alt="Pokédex"></h1>
+  </div>
+  <div class="image-grid">
+    <img class="main-image" [src]="pokemonDetails?.sprites?.other['official-artwork']?.front_default" alt="Imagen principal">
+    <img class="shiny-image" [src]="pokemonDetails?.sprites?.other['official-artwork']?.front_shiny" alt="Imagen shiny">
+  </div>
+  <div class="pokemon-details">
+    <h2>{{ pokemonDetails.name }}</h2>
+  
+    <ul class="pokemon-info">
+      <li>ID: {{ pokemonDetails.id | number: '3.0-0' }}</li>
+      <li>Altura: {{ pokemonDetails.height }} cm</li>
+      <li>Peso: {{ pokemonDetails.weight }} g</li>
+    </ul>
+    <h3>Stats:</h3>
+    <ul class="pokemon-stats">
+      <li *ngFor="let stat of pokemonDetails?.stats">
+        <span class="stat-name">{{ stat.stat.name }}:</span>
+        <div class="stat-bar" [style.width.%]="stat.base_stat / 255 * 100"></div>
+        <span class="stat-value">{{ stat.base_stat }}</span>
+      </li>
+    </ul>
+    
+  </div>
+  

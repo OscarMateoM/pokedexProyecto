@@ -25,6 +25,16 @@ export class PokemonService {
       })
     );
 }
+
+getPokemonDetails(id: string): Observable<any> {
+  const url = `${this.pokeapi}${id}`;
+  return this.http.get(url);
+}
+
+getPokemonDetailsById(id: number): Observable<any> {
+  const url = `${this.pokeapi}${id}/`;
+  return this.http.get(url);
+}
   
 }
 

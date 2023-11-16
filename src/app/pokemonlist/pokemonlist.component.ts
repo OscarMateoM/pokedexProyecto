@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../pokemon.service';
 import { forkJoin } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 
@@ -37,8 +38,10 @@ export class PokemonlistComponent implements OnInit {
     flying: '../../assets/images/volador.png',
  };
 
-  constructor(
-    private pokemonService: PokemonService) {}
+ constructor(
+  private router: Router,
+  private pokemonService: PokemonService
+) {}
 
   ngOnInit() {
     const getPokemonList$ = this.pokemonService.getPokemonList();
@@ -142,5 +145,10 @@ export class PokemonlistComponent implements OnInit {
     return id;
   }
   
+  navigateToDetail(pokemon: any) {
+    console.log('Navigating to details for Pokemon:', pokemon);
+    const pokemonId = this.getPokemonId(pokemon.url);
+    this.router.navigate(['/pokemon', pokemonId]);
+  }
 }
 
