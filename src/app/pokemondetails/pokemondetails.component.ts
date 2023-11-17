@@ -56,7 +56,11 @@ export class PokemonDetailsComponent implements OnInit {
   get pokemonStats() {
     return this._pokemonDetails?.stats;
   }
-
+  getStatWidthPercentage(baseStat: number): string {
+    const maxStat = 255; // Este valor puede variar según el máximo de las estadísticas
+    const percentage = (baseStat / maxStat) * 100;
+    return percentage + '%';
+  }
 }
 
 

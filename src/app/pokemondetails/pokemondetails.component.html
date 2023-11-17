@@ -8,17 +8,21 @@
   <div class="pokemon-details">
     <h2>{{ pokemonDetails.name }}</h2>
   
-    <ul class="pokemon-info">
-      <li>ID: {{ pokemonDetails.id | number: '3.0-0' }}</li>
-      <li>Altura: {{ pokemonDetails.height }} cm</li>
-      <li>Peso: {{ pokemonDetails.weight }} g</li>
-    </ul>
+    <div class="pokemon-info">
+      ID: {{ pokemonDetails.id | number: '3.0-0' }} <br>
+      Altura: {{ pokemonDetails.height }} cm <br>
+      Peso: {{ pokemonDetails.weight }} g <br>
+    </div>
     <h3>Stats:</h3>
     <ul class="pokemon-stats">
       <li *ngFor="let stat of pokemonDetails?.stats">
-        <span class="stat-name">{{ stat.stat.name }}:</span>
-        <div class="stat-bar" [style.width.%]="stat.base_stat / 255 * 100"></div>
-        <span class="stat-value">{{ stat.base_stat }}</span>
+        <div class="stat-container">
+          <div class="stat-name">{{ stat.stat.name }}:</div>
+          <div class="stat-bar-container">
+            <div class="stat-bar" [style.width]="getStatWidthPercentage(stat.base_stat)"></div>
+            <div class="stat-value">{{ stat.base_stat }}</div>
+          </div>
+        </div>
       </li>
     </ul>
     
