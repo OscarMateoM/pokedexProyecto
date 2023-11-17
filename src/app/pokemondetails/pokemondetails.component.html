@@ -1,17 +1,25 @@
 <div class="pokemon-head">
     <h1><img src="../../assets/images/pokedex.png" alt="Pokédex"></h1>
   </div>
+  <body style="background-image: url(../../assets/images/{{pokemonDetails.Types}}.png);">
   <div class="image-grid">
     <img class="main-image" [src]="pokemonDetails?.sprites?.other['official-artwork']?.front_default" alt="Imagen principal">
     <img class="shiny-image" [src]="pokemonDetails?.sprites?.other['official-artwork']?.front_shiny" alt="Imagen shiny">
   </div>
   <div class="pokemon-details">
     <h2>{{ pokemonDetails.name }}</h2>
-  
-    <div class="pokemon-info">
+    <div class="type-images-container">
+      <ng-container *ngFor="let type of pokemonTypes">
+        <img [src]="typeImageMappings[type]" alt="{{ type }}" class="type-image">
+      </ng-container>
+    </div>
+    <div class="pokemon-description">
+      <p>{{ pokemonDescription }}</p>
+    </div>
+  <div class="pokemon-info">
       ID: {{ pokemonDetails.id | number: '3.0-0' }} <br>
-      Altura: {{ pokemonDetails.height }} cm <br>
-      Peso: {{ pokemonDetails.weight }} g <br>
+      Altura: {{ pokemonDetails.height /10 | number: '0.1-2' }} m <br>
+      Peso: {{ pokemonDetails.weight /10 | number: '0.1-2' }} kg <br>
     </div>
     <h3>Stats:</h3>
     <ul class="pokemon-stats">
@@ -25,6 +33,5 @@
         </div>
       </li>
     </ul>
-    
   </div>
-  
+</body>

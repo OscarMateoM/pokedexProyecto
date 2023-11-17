@@ -1,7 +1,7 @@
 .pokemon-head {
     text-align: center;
   }
-  
+ 
   .pokemon-details {
     font-family: 'PokemonSolid';
     text-transform: capitalize;
@@ -53,7 +53,7 @@
   
   .stat-name {
     margin-right: 10px;
-    width: 25%; /* Ancho del contenedor del nombre de la stat */
+    width: 25%;
   }
   
   .stat-bar-container {
@@ -69,7 +69,18 @@
   
   .stat-value {
     margin-left: 10px;
-    width: 30px; /* Ancho del contenedor del valor de la stat */
+    width: 30px;
+  }
+  .type-images-container {
+    text-align: center;
+    
+  }
+  
+  .type-image {
+    width: 70px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 5px;
   }
   
 

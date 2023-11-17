@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonService } from '../pokemon.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -9,6 +10,29 @@ import { PokemonService } from '../pokemon.service';
 })
 export class PokemonDetailsComponent implements OnInit {
   private _pokemonDetails: any;
+  private _pokemonTypes: string[] = [];
+  private _pokemonDescription: any;
+
+  typeImageMappings: { [key: string]: string } = {
+    normal: '../../assets/images/normal.png',
+    fire: '../../assets/images/fuego.png',
+    water: '../../assets/images/agua.png',
+    steel: '../../assets/images/acero.png',
+    bug: '../../assets/images/bicho.png',
+    dragon: '../../assets/images/dragon.png',
+    electric: '../../assets/images/electrico.png',
+    ghost: '../../assets/images/fantasma.png',
+    fairy: '../../assets/images/hada.png',
+    ice: '../../assets/images/hielo.png',
+    fighting: '../../assets/images/lucha.png',
+    grass: '../../assets/images/planta.png',
+    psychic: '../../assets/images/psiquico.png',
+    rock: '../../assets/images/roca.png',
+    dark: '../../assets/images/siniestro.png',
+    ground: '../../assets/images/tierra.png',
+    poison: '../../assets/images/veneno.png',
+    flying: '../../assets/images/volador.png',
+ };
 
   constructor(
     private route: ActivatedRoute,
@@ -19,6 +43,20 @@ export class PokemonDetailsComponent implements OnInit {
     this.route.params.subscribe(params => {
       const pokemonId = +params['id'];
       this.getPokemonDetails(pokemonId);
+      this.getPokemonDescription(pokemonId);
+
+      forkJoin([
+        this.pokemonService.getPokemonDetailsById(pokemonId),
+        this.pokemonService.getPokemonTypes(pokemonId.toString())
+      ]).subscribe(
+        ([pokemonDetails, pokemonTypes]: [any, string[]]) => {
+          this._pokemonDetails = pokemonDetails;
+          this._pokemonTypes = pokemonTypes;
+        },
+        error => {
+          console.error('Error fetching Pokemon details:', error);
+        }
+      );
     });
   }
 
@@ -56,11 +94,32 @@ export class PokemonDetailsComponent implements OnInit {
   get pokemonStats() {
     return this._pokemonDetails?.stats;
   }
+ 
+  get pokemonTypes() {
+    return this._pokemonTypes;
+  } 
+
   getStatWidthPercentage(baseStat: number): string {
-    const maxStat = 255; // Este valor puede variar según el máximo de las estadísticas
+    const maxStat = 255;
     const percentage = (baseStat / maxStat) * 100;
     return percentage + '%';
   }
+
+  getPokemonDescription(pokemonId: number) {
+    this.pokemonService.getPokemonDescription(pokemonId.toString()).subscribe(
+      (description: string) => {
+        this._pokemonDescription = description;
+      },
+      error => {
+        console.error('Error fetching Pokemon description:', error);
+      }
+    );
+  }
+
+  get pokemonDescription() {
+    return this._pokemonDescription;
+  }
+
 }
 
 
