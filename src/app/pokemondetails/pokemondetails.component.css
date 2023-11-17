@@ -18,7 +18,7 @@
   
   .main-image,
   .shiny-image {
-    width: 25%;
+    width: 60%;
     height: auto;
   }
   
@@ -49,6 +49,9 @@
     display: flex;
     align-items: center;
     margin-bottom: 8px;
+    font-family: 'PokemonSolid';
+    text-transform: capitalize;
+    letter-spacing: 4px;
   }
   
   .stat-name {
@@ -82,5 +85,16 @@
     display: inline-block;
     margin-right: 5px;
   }
+  .pokemon-description{
+    text-transform: none;
+  }
+  .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-aroun;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
   
 
