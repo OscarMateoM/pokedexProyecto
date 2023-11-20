@@ -47,7 +47,10 @@ getPokemonDescription(pokemonNameOrId: string): Observable<string> {
     })
   );
 }
-
+getTypeEffectiveness(): Observable<any> {
+  const url = 'assets/type-effectiveness.json';
+  return this.http.get(url);
+}
 
 }
 

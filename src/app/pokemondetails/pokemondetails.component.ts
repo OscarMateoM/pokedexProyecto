@@ -12,6 +12,7 @@ export class PokemonDetailsComponent implements OnInit {
   private _pokemonDetails: any;
   private _pokemonTypes: string[] = [];
   private _pokemonDescription: any;
+  private _typeEffectiveness: any;
 
 
   typeImageMappings: { [key: string]: string } = {
@@ -43,27 +44,34 @@ export class PokemonDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       const pokemonId = +params['id'];
-      this.getPokemonDetails(pokemonId);
-      this.getPokemonDescription(pokemonId);
 
       forkJoin([
         this.pokemonService.getPokemonDetailsById(pokemonId),
-        this.pokemonService.getPokemonTypes(pokemonId.toString())
+        this.pokemonService.getPokemonTypes(pokemonId.toString()),
+        this.pokemonService.getTypeEffectiveness()
       ]).subscribe(
-        ([pokemonDetails, pokemonTypes]: [any, string[]]) => {
+        ([pokemonDetails, pokemonTypes, typeEffectiveness]: [any, string[], any]) => {
           this._pokemonDetails = pokemonDetails;
           this._pokemonTypes = pokemonTypes;
+          this._typeEffectiveness = typeEffectiveness;
+        },
+        error => {
+          console.error('Error fetching Pokemon details:', error);
         }
       );
+
+      this.getPokemonDescription(pokemonId);
     });
   }
-
   getPokemonDetails(pokemonId: number) {
     this.pokemonService.getPokemonDetailsById(pokemonId).subscribe(
       (data: any) => {
         this._pokemonDetails = data;
       }
     );
+  }
+  get typeEffectiveness() {
+    return this._typeEffectiveness;
   }
 
   get pokemonDetails() {

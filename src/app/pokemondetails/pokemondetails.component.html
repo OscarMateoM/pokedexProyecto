@@ -55,4 +55,45 @@
     </div>
   </li>
 </ul>
+<div *ngIf="typeEffectiveness">
+  <h3>Debilidades y resistencias:</h3>
+  <table border="1">
+    <tr>
+      <th>Debil</th>
+      <th>Resistente</th>
+      <th>No eficaz</th>
+      <th>Muy Eficaz</th>
+    </tr>
+    <tr *ngFor="let pokemonType of pokemonTypes">
+      <td>
+        <ul>
+          <li *ngFor="let relation of typeEffectiveness[pokemonType].weaknesses">
+            {{ relation }}
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li *ngFor="let relation of typeEffectiveness[pokemonType].resistances">
+            {{ relation }}
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li *ngFor="let relation of typeEffectiveness[pokemonType].noEffect">
+            {{ relation }}
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li *ngFor="let relation of typeEffectiveness[pokemonType].strengths">
+            {{ relation }}
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+</div>
 </body>
