@@ -1,7 +1,11 @@
 .pokemon-head {
     text-align: center;
   }
- 
+ h3 {
+  font-family: 'PokemonSolid';
+  text-transform: capitalize;
+  letter-spacing: 4px;
+ }
   .pokemon-details {
     font-family: 'PokemonSolid';
     text-transform: capitalize;
@@ -140,7 +144,11 @@
 .pokemon-stats li.hardgreen .stat-bar {
   background-color: #58FAAC; 
 }
-
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; 
+}
 
 
 

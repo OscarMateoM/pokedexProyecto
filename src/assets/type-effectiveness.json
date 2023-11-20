@@ -103,5 +103,27 @@
     "noEffect": ["poison"],
     "strengths": ["ice", "rock", "fairy"],
     "superStrengths": []
+  },
+  "dragon": {
+    "weaknesses": ["dragon", "fairy", "ice"],
+    "resistances": ["electric", "fire", "grass", "water"],
+    "noEffect": [],
+    "strengths": ["bug", "fighting", "ground"],
+    "superStrengths": []
+  },
+  "fairy": {
+    "weaknesses": ["poison", "steel"],
+    "resistances": ["bug", "dark", "fighting"],
+    "noEffect": ["dragon"],
+    "strengths": ["dragon", "fighting"],
+    "superStrengths": []
+  },
+  "dark": {
+    "weaknesses": ["bug", "fairy", "fighting"],
+    "resistances": ["dark", "ghost"],
+    "noEffect": [],
+    "strengths": ["ghost", "psychic"],
+    "superStrengths": []
   }
+
 }

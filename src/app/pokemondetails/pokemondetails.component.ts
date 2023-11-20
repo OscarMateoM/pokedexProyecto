@@ -124,7 +124,7 @@ export class PokemonDetailsComponent implements OnInit {
   getColorBarra(baseStat: number): string {
     if (baseStat <= 40) {
       return 'red';
-    } else if (baseStat <= 65) {
+    } else if (baseStat < 65) {
       return 'hardorange';
     } else if (baseStat <= 80) {
       return 'orange';

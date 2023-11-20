@@ -45,6 +45,7 @@
   </div>
 </div>
 <ul class="pokemon-stats">
+  <h3>Stats</h3>
   <li *ngFor="let stat of pokemonDetails?.stats" [ngClass]="getColorBarra(stat.base_stat)">
     <div class="stat-container">
       <div class="stat-name">{{ stat.stat.name }}:</div>
@@ -56,7 +57,7 @@
   </li>
 </ul>
 <div *ngIf="typeEffectiveness">
-  <h3>Debilidades y resistencias:</h3>
+  <h3>Debilidades y resistencias</h3>
   <table border="1">
     <tr>
       <th>Debil</th>
@@ -68,28 +69,28 @@
       <td>
         <ul>
           <li *ngFor="let relation of typeEffectiveness[pokemonType].weaknesses">
-            {{ relation }}
+            <img [src]="typeImageMappings[relation]" alt="{{ relation }}" class="type-image">
           </li>
         </ul>
       </td>
       <td>
         <ul>
           <li *ngFor="let relation of typeEffectiveness[pokemonType].resistances">
-            {{ relation }}
+            <img [src]="typeImageMappings[relation]" alt="{{ relation }}" class="type-image">
           </li>
         </ul>
       </td>
       <td>
         <ul>
           <li *ngFor="let relation of typeEffectiveness[pokemonType].noEffect">
-            {{ relation }}
+            <img [src]="typeImageMappings[relation]" alt="{{ relation }}" class="type-image">
           </li>
         </ul>
       </td>
       <td>
         <ul>
           <li *ngFor="let relation of typeEffectiveness[pokemonType].strengths">
-            {{ relation }}
+            <img [src]="typeImageMappings[relation]" alt="{{ relation }}" class="type-image">
           </li>
         </ul>
       </td>
