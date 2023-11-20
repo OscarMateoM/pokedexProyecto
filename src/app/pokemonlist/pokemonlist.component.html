@@ -1,11 +1,11 @@
 
 <div class="pokemon-head"> <h1><img src="../../assets/images/pokedex.png" alt="Pokédex"></h1> </div>
 <div class="container">
-  <input class="search" type="text" placeholder="Buscar Pokémon..." [(ngModel)]="searchTerm" (input)="onSearch()">
+  <input class="search" type="text" placeholder="Buscar Pokémon..." [(ngModel)]="searchTerm" (input)="onSearch()" style="display: flex;">
   <br>
   <br>
   <button (click)="filterByType('normal')"class="boton-normal">Normal</button>
-  <button class="boton-fire"(click)="filterByType('fire')">Fire</button>
+  <button (click)="filterByType('fire')" class="boton-fire">Fire</button>
   <button (click)="filterByType('water')" class="boton-water">Water</button>
   <button (click)="filterByType('grass')" class="boton-grass">Grass</button>
   <button (click)="filterByType('bug')" class="boton-bug">Bug</button>

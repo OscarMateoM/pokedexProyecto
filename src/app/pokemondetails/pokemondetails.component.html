@@ -3,7 +3,7 @@
     <h1><img src="../../assets/images/pokedex.png" alt="Pokédex"></h1>
   </a>
 </div>
-<body style="background-image: url(../../assets/images/{{pokemonDetails.Types}}.png);">
+<body>
 
 <div class="container">
   <div class="image-grid">
@@ -58,11 +58,11 @@
 </ul>
 <div *ngIf="typeEffectiveness">
   <h3>Debilidades y resistencias</h3>
-  <table border="1">
+  <table border="0">
     <tr>
       <th>Debil</th>
       <th>Resistente</th>
-      <th>No eficaz</th>
+      <th>Inmune</th>
       <th>Muy Eficaz</th>
     </tr>
     <tr *ngFor="let pokemonType of pokemonTypes">

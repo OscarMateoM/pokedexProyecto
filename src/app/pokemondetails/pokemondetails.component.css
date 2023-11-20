@@ -18,6 +18,7 @@
     display: inline-block;
     background-image: url(../../assets/images/pokedex_fondo.jpg);
     background-size: cover;
+    border-radius: 10px;
   }
   .sprite-grid {
     position: relative;
