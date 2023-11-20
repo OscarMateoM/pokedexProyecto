@@ -40,14 +40,14 @@ getPokemonDescription(pokemonNameOrId: string): Observable<string> {
   const url = `https://pokeapi.co/api/v2/pokemon-species/${pokemonNameOrId}`;
   return this.http.get(url).pipe(
     map((speciesData: any) => {
-      // Buscar la entrada de texto en español
       const flavorText = speciesData.flavor_text_entries.find(
         (entry: any) => entry.language.name === 'es'
       );
-      // Si no se encuentra en español, intentar inglés
       return flavorText ? flavorText.flavor_text : '';
     })
   );
 }
+
+
 }
 

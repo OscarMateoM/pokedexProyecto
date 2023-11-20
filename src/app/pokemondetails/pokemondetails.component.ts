@@ -13,6 +13,7 @@ export class PokemonDetailsComponent implements OnInit {
   private _pokemonTypes: string[] = [];
   private _pokemonDescription: any;
 
+
   typeImageMappings: { [key: string]: string } = {
     normal: '../../assets/images/normal.png',
     fire: '../../assets/images/fuego.png',
@@ -52,9 +53,6 @@ export class PokemonDetailsComponent implements OnInit {
         ([pokemonDetails, pokemonTypes]: [any, string[]]) => {
           this._pokemonDetails = pokemonDetails;
           this._pokemonTypes = pokemonTypes;
-        },
-        error => {
-          console.error('Error fetching Pokemon details:', error);
         }
       );
     });
@@ -64,9 +62,6 @@ export class PokemonDetailsComponent implements OnInit {
     this.pokemonService.getPokemonDetailsById(pokemonId).subscribe(
       (data: any) => {
         this._pokemonDetails = data;
-      },
-      error => {
-        console.error('Error fetching Pokemon details:', error);
       }
     );
   }
@@ -110,9 +105,7 @@ export class PokemonDetailsComponent implements OnInit {
       (description: string) => {
         this._pokemonDescription = description;
       },
-      error => {
-        console.error('Error fetching Pokemon description:', error);
-      }
+
     );
   }
 
@@ -120,6 +113,23 @@ export class PokemonDetailsComponent implements OnInit {
     return this._pokemonDescription;
   }
 
+  getColorBarra(baseStat: number): string {
+    if (baseStat <= 40) {
+      return 'red';
+    } else if (baseStat <= 65) {
+      return 'hardorange';
+    } else if (baseStat <= 80) {
+      return 'orange';
+    } else if (baseStat <= 100) {
+      return 'yellow';
+    } else if (baseStat <= 120) {
+      return 'green';
+    } else {
+      return 'hardgreen';
+    }
+  }
+
+  
 }
 
 
