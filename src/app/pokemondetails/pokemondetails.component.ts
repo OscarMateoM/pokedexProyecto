@@ -54,9 +54,6 @@ export class PokemonDetailsComponent implements OnInit {
           this._pokemonDetails = pokemonDetails;
           this._pokemonTypes = pokemonTypes;
           this._typeEffectiveness = typeEffectiveness;
-        },
-        error => {
-          console.error('Error fetching Pokemon details:', error);
         }
       );
 
