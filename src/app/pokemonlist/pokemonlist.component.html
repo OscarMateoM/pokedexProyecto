@@ -3,11 +3,15 @@
 <div class="container">
   <input class="search" type="text" placeholder="Buscar Pokémon" [(ngModel)]="searchTerm" (input)="onSearch()">
   <br>
+  <button (click)="filterByGeneration(1)">Gen 1</button>
+<button (click)="filterByGeneration(2)">Gen 2</button>
+<button (click)="filterByGeneration(3)">Gen 3</button>
+<button (click)="filterByGeneration(4)">Gen 4</button>
   <button (click)="filterByType('normal')">normal</button>
   <button class="boton-fire"(click)="filterByType('fire')">fire</button>
-  <button (click)="filterByType('water')">water</button>
-  <button (click)="filterByType('grass')">grass</button>
-  <button (click)="filterByType('bug')">bug</button>
+  <button class="boton-water"(click)="filterByType('water')">water</button>
+  <button class="boton-grass"(click)="filterByType('grass')">grass</button>
+  <button class="boton-bug"(click)="filterByType('bug')">bug</button>
   <button (click)="filterByType('dragon')">dragon</button>
   <button (click)="filterByType('electric')">electric</button>
   <button (click)="filterByType('fairy')">fairy</button>

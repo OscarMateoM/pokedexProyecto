@@ -14,7 +14,7 @@ export class PokemonlistComponent implements OnInit {
   public searchTerm: string = '';
   public filteredPokemonList: any[] = [];
   selectedTypes: string[] = [];
-  
+  selectedGeneration: number=0;
 
   typeImageMappings: { [key: string]: string } = {
     normal: '../../assets/images/normal.png',
@@ -41,6 +41,7 @@ export class PokemonlistComponent implements OnInit {
     private pokemonService: PokemonService) {}
 
   ngOnInit() {
+    
     const getPokemonList$ = this.pokemonService.getPokemonList();
 
     getPokemonList$.subscribe((data: any) => {
@@ -78,20 +79,35 @@ export class PokemonlistComponent implements OnInit {
     this.applyFilters();
   }
   
+  filterByGeneration(generation: number) {
+    this.selectedGeneration = generation;
+    this.applyFilters();
+  }
+  
   applyFilters() {
-    let filteredByType = this.pokemonList;
+    let filteredByTypeAndGeneration = this.pokemonList;
+  
+    // Aplicar filtro por tipo
     if (this.selectedTypes.length > 0) {
-      filteredByType = this.pokemonList.filter((pokemon: any) => {
+      filteredByTypeAndGeneration = filteredByTypeAndGeneration.filter((pokemon: any) => {
         return this.selectedTypes.every(type => pokemon.types.includes(type));
       });
     }
   
+    // Aplicar filtro por generación
+    if (this.selectedGeneration > 0) {
+      filteredByTypeAndGeneration = filteredByTypeAndGeneration.filter((pokemon: any) => {
+        return pokemon.generation === this.selectedGeneration;
+      });
+    }
+  
+    // Aplicar filtro por término de búsqueda
     if (this.searchTerm) {
-      this.filteredPokemonList = filteredByType.filter((pokemon: any) => {
+      this.filteredPokemonList = filteredByTypeAndGeneration.filter((pokemon: any) => {
         return pokemon.name.toLowerCase().includes(this.searchTerm.toLowerCase());
       });
     } else {
-      this.filteredPokemonList = filteredByType;
+      this.filteredPokemonList = filteredByTypeAndGeneration;
     }
   }
   
