@@ -10,7 +10,7 @@
     "weaknesses": ["water", "rock"],
     "resistances": ["grass", "ice", "bug", "steel"],
     "noEffect": [],
-    "strengths": ["flying", "bug", "grass"],
+    "strengths": ["ice", "bug", "grass"],
     "superStrengths": []
   },
   "water": {
