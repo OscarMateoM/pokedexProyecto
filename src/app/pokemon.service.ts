@@ -13,7 +13,12 @@ export class PokemonService {
   constructor(private http: HttpClient) {}
 
   getPokemonList() {
-    const url = `${this.pokeapi}?limit=151`;
+    const url = `${this.pokeapi}?limit=493`;
+    return this.http.get(url);
+  }
+
+  filtergen(gen: string) {
+    const url = `${this.pokeapi}?limit=${gen}`;
     return this.http.get(url);
   }
 

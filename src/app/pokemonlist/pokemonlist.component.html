@@ -1,8 +1,9 @@
 
 <div class="pokemon-head"> <h1><img src="../../assets/images/pokedex.png" alt="Pokédex"></h1> </div>
 <div class="container">
-  <input class="search" type="text" placeholder="Buscar Pokémon" [(ngModel)]="searchTerm" (input)="onSearch()">
+  <input class="search" type="text" placeholder="Buscar Pokémon..." [(ngModel)]="searchTerm" (input)="onSearch()">
   <br>
+<<<<<<< HEAD
   <button (click)="filterByGeneration(1)">Gen 1</button>
 <button (click)="filterByGeneration(2)">Gen 2</button>
 <button (click)="filterByGeneration(3)">Gen 3</button>
@@ -25,6 +26,31 @@
   <button (click)="filterByType('fighting')">fighting</button>
   <button (click)="filterByType('poison')">poison</button>
   <button (click)="filterByType('psychic')">psychic</button>
+=======
+  <br>
+  <button (click)="filterByType('normal')"class="boton-normal">Normal</button>
+  <button class="boton-fire"(click)="filterByType('fire')">Fire</button>
+  <button (click)="filterByType('water')" class="boton-water">Water</button>
+  <button (click)="filterByType('grass')" class="boton-grass">Grass</button>
+  <button (click)="filterByType('bug')" class="boton-bug">Bug</button>
+  <button (click)="filterByType('dragon')" class="boton-dragon">Dragon</button>
+  <button (click)="filterByType('electric')" class="boton-electric">Electric</button>
+  <button (click)="filterByType('fairy')" class="boton-fairy">Fairy</button>
+  <button (click)="filterByType('ground')" class="boton-ground">Ground</button>
+  <button (click)="filterByType('rock')" class="boton-rock">Rock</button>
+  <button (click)="filterByType('steel')" class="boton-steel">Steel</button>
+  <button (click)="filterByType('ice')" class="boton-ice">Ice</button>
+  <button (click)="filterByType('flying')" class="boton-flying">Flying</button>
+  <button (click)="filterByType('dark')" class="boton-dark">Dark</button>
+  <button (click)="filterByType('ghost')" class="boton-ghost">Ghost</button>
+  <button (click)="filterByType('fighting')" class="boton-fighting">Fighting</button>
+  <button (click)="filterByType('poison')" class="boton-poison">Poison</button>
+  <button (click)="filterByType('psychic')" class="boton-psychic">Psychic</button>  
+  <button (click)="filterByGeneration(1)"class="boton-generation">Gen 1</button>
+  <button (click)="filterByGeneration(2)"class="boton-generation">Gen 2</button>
+  <button (click)="filterByGeneration(3)"class="boton-generation">Gen 3</button>
+  <button (click)="filterByGeneration(4)"class="boton-generation">Gen 4</button>
+>>>>>>> f4533514375c85b5c191f60c0f0b55bec6ecfdb4
 </div>
 
 <div class="pokemon-grid">
