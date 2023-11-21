@@ -47,6 +47,10 @@
   .sprite-grid:hover .shiny-sprite {
     opacity: 1; 
   }
+  .sprite-grid:hover .main-sprite {
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+  }
   
   
   .pokemon-info {

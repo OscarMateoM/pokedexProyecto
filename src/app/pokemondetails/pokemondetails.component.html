@@ -14,8 +14,10 @@
   <div class="pokemon-details">
     <h1>{{ pokemonDetails.name }}</h1>
     <div class="sprite-grid"> 
-    <img class="main-sprite" [src]="pokemonDetails?.sprites?.front_default" alt="sprite">
-    <img class="shiny-sprite" [src]="pokemonDetails?.sprites?.front_shiny" alt="shinysprite">
+    <img class="main-sprite" [src]="pokemonDetails?.sprites?.versions['generation-v']['black-white'].animated.front_default
+    " alt="sprite">
+    <img class="shiny-sprite" [src]="pokemonDetails?.sprites?.versions['generation-v']['black-white'].animated.front_shiny
+    " alt="shinysprite">
   </div>
 
     <div class="type-images-container">
