@@ -62,10 +62,9 @@
   <h3>Debilidades y resistencias</h3>
   <table border="0">
     <tr>
-      <th>Debil</th>
-      <th>Resistente</th>
-      <th>Inmune</th>
-      <th>Muy Eficaz</th>
+      <th>x2</th>
+      <th>x0.5</th>
+      <th>x0</th> 
     </tr>
     <tr *ngFor="let pokemonType of pokemonTypes">
       <td>
@@ -85,13 +84,6 @@
       <td>
         <ul>
           <li *ngFor="let relation of typeEffectiveness[pokemonType].noEffect">
-            <img [src]="typeImageMappings[relation]" alt="{{ relation }}" class="type-image">
-          </li>
-        </ul>
-      </td>
-      <td>
-        <ul>
-          <li *ngFor="let relation of typeEffectiveness[pokemonType].strengths">
             <img [src]="typeImageMappings[relation]" alt="{{ relation }}" class="type-image">
           </li>
         </ul>

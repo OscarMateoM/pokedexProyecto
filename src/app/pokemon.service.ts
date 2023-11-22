@@ -51,6 +51,10 @@ getTypeEffectiveness(): Observable<any> {
   const url = 'assets/type-effectiveness.json';
   return this.http.get(url);
 }
+getPokemonEvolutionChain(pokemonId: number): Observable<any> {
+  const url = `${this.pokeapi}/evolution-chain/${pokemonId}/`;
+  return this.http.get(url);
+}
 
 }
 
