@@ -60,57 +60,11 @@
   .boton-fire {
     text-decoration: none;
     font-weight: 600;
-<<<<<<< HEAD
-    font-size: 16px; 
-    color: #ffffff;
-    padding-top: 10px; 
-    padding-bottom: 10px; 
-    padding-left: 20px; 
-    padding-right: 20px; 
-    background-color: #ff0000; 
-  }
-
-  .boton-water {
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px; 
-    color: #ffffff;
-    padding-top: 10px; 
-    padding-bottom: 10px; 
-    padding-left: 20px; 
-    padding-right: 20px; 
-    background-color: blue; 
-  }
-
-  .boton-grass {
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px; 
-    color: #ffffff;
-    padding-top: 10px; 
-    padding-bottom: 10px; 
-    padding-left: 20px; 
-    padding-right: 20px; 
-    background-color: green; 
-  }
-
-  .boton-bug {
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px; 
-    color: #ffffff;
-    padding-top: 10px; 
-    padding-bottom: 10px; 
-    padding-left: 20px; 
-    padding-right: 20px; 
-    background-color: greenyellow; 
-=======
     font-size: 16px;
     color: #ffffff;
     padding: 10px 20px;
     background-color: #EE8130;
     border-radius: 20px;
->>>>>>> f4533514375c85b5c191f60c0f0b55bec6ecfdb4
   }
   
   .boton-water {
