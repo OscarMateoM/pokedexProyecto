@@ -1,7 +1,7 @@
 
 <div class="pokemon-head"> <h1><img src="../../assets/images/pokedex.png" alt="Pokédex"></h1> </div>
 <div class="container">
-  <input class="search" type="text" placeholder="Buscar Pokémon..." [(ngModel)]="searchTerm" (input)="onSearch()">
+  <input class="search" type="text" placeholder="Buscar Pokémon..." [(ngModel)]="searchTerm" (input)="onSearch()" style="display: flex;">
   <br>
 <<<<<<< HEAD
   <button (click)="filterByGeneration(1)">Gen 1</button>
@@ -29,23 +29,23 @@
 =======
   <br>
   <button (click)="filterByType('normal')"class="boton-normal">Normal</button>
-  <button class="boton-fire"(click)="filterByType('fire')">Fire</button>
-  <button (click)="filterByType('water')" class="boton-water">Water</button>
-  <button (click)="filterByType('grass')" class="boton-grass">Grass</button>
-  <button (click)="filterByType('bug')" class="boton-bug">Bug</button>
+  <button (click)="filterByType('fire')" class="boton-fire">Fuego</button>
+  <button (click)="filterByType('water')" class="boton-water">Agua</button>
+  <button (click)="filterByType('grass')" class="boton-grass">Planta</button>
+  <button (click)="filterByType('bug')" class="boton-bug">Bicho</button>
   <button (click)="filterByType('dragon')" class="boton-dragon">Dragon</button>
-  <button (click)="filterByType('electric')" class="boton-electric">Electric</button>
-  <button (click)="filterByType('fairy')" class="boton-fairy">Fairy</button>
-  <button (click)="filterByType('ground')" class="boton-ground">Ground</button>
-  <button (click)="filterByType('rock')" class="boton-rock">Rock</button>
-  <button (click)="filterByType('steel')" class="boton-steel">Steel</button>
-  <button (click)="filterByType('ice')" class="boton-ice">Ice</button>
-  <button (click)="filterByType('flying')" class="boton-flying">Flying</button>
-  <button (click)="filterByType('dark')" class="boton-dark">Dark</button>
-  <button (click)="filterByType('ghost')" class="boton-ghost">Ghost</button>
-  <button (click)="filterByType('fighting')" class="boton-fighting">Fighting</button>
-  <button (click)="filterByType('poison')" class="boton-poison">Poison</button>
-  <button (click)="filterByType('psychic')" class="boton-psychic">Psychic</button>  
+  <button (click)="filterByType('electric')" class="boton-electric">Electrico</button>
+  <button (click)="filterByType('fairy')" class="boton-fairy">Hada</button>
+  <button (click)="filterByType('ground')" class="boton-ground">Tierra</button>
+  <button (click)="filterByType('rock')" class="boton-rock">Roca</button>
+  <button (click)="filterByType('steel')" class="boton-steel">Acero</button>
+  <button (click)="filterByType('ice')" class="boton-ice">Hielo</button>
+  <button (click)="filterByType('flying')" class="boton-flying">Volador</button>
+  <button (click)="filterByType('dark')" class="boton-dark">Siniestro</button>
+  <button (click)="filterByType('ghost')" class="boton-ghost">Fantasma</button>
+  <button (click)="filterByType('fighting')" class="boton-fighting">Lucha</button>
+  <button (click)="filterByType('poison')" class="boton-poison">Veneno</button>
+  <button (click)="filterByType('psychic')" class="boton-psychic">Psiquico</button>  
   <button (click)="filterByGeneration(1)"class="boton-generation">Gen 1</button>
   <button (click)="filterByGeneration(2)"class="boton-generation">Gen 2</button>
   <button (click)="filterByGeneration(3)"class="boton-generation">Gen 3</button>
@@ -54,18 +54,20 @@
 </div>
 
 <div class="pokemon-grid">
-  
-  <div *ngFor="let pokemon of filteredPokemonList" class="pokemon-card">
+  <div *ngFor="let pokemon of filteredPokemonList" class="pokemon-card" (click)="navigateToDetail(pokemon)">
+    <a [routerLink]="['/pokemon', getPokemonId(pokemon.url)]">
       <img [src]="getPokemonImageUrl(pokemon.url)" alt="{{ pokemon.name }}">
-    <div class="pokemon-id">Nº:{{ getPokemonId(pokemon.url) | number: '3.0-0' }}</div>
-    <div class="pokemon-name">{{ pokemon.name }}</div>
-    <div class="pokemon-types">
-    <ng-container *ngFor="let type of pokemon.types">
-        <img [src]="typeImageMappings[type]" alt="{{ type }}" style="width: 70px; height: 20px;">
-    </ng-container>
-    </div>
+      <div class="pokemon-id">Nº:{{ getPokemonId(pokemon.url) | number: '3.0-0' }}</div>
+      <div class="pokemon-name">{{ pokemon.name }}</div>
+      <div class="pokemon-types">
+        <ng-container *ngFor="let type of pokemon.types">
+          <img [src]="typeImageMappings[type]" alt="{{ type }}" style="width: 70px; height: 20px;">
+        </ng-container>
+      </div>
+    </a>
   </div>
-  </div>
+</div>
+
 
 
   

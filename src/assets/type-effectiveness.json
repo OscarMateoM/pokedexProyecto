@@ -1,0 +1,129 @@
+{
+  "normal": {
+    "weaknesses": ["fighting"],
+    "resistances": ["rock", "steel"],
+    "noEffect": ["ghost"],
+    "strengths": [],
+    "superStrengths": []
+  },
+  "fire": {
+    "weaknesses": ["water", "rock"],
+    "resistances": ["grass", "ice", "bug", "steel"],
+    "noEffect": [],
+    "strengths": ["ice", "bug", "grass"],
+    "superStrengths": []
+  },
+  "water": {
+    "weaknesses": ["electric", "grass"],
+    "resistances": ["fire", "ice", "bug"],
+    "noEffect": [],
+    "strengths": ["fire", "ground", "rock"],
+    "superStrengths": []
+  },
+  "electric": {
+    "weaknesses": ["ground"],
+    "resistances": ["water", "flying"],
+    "noEffect": [],
+    "strengths": ["steel"],
+    "superStrengths": []
+  },
+  "grass": {
+    "weaknesses": ["fire", "ice", "poison", "flying", "bug"],
+    "resistances": ["water", "ground", "rock"],
+    "noEffect": [],
+    "strengths": ["water", "electric", "ground"],
+    "superStrengths": []
+  },
+  "ice": {
+    "weaknesses": ["fire", "fighting", "rock", "steel"],
+    "resistances": ["ice"],
+    "noEffect": [],
+    "strengths": ["flying", "ground", "grass"],
+    "superStrengths": []
+  },
+  "fighting": {
+    "weaknesses": ["flying", "psychic", "fairy"],
+    "resistances": ["bug", "rock", "dark"],
+    "noEffect": ["ghost"],
+    "strengths": ["normal", "ice", "rock", "dark", "steel"],
+    "superStrengths": []
+  },
+  "poison": {
+    "weaknesses": ["ground", "psychic"],
+    "resistances": ["fighting", "poison", "bug", "grass", "fairy"],
+    "noEffect": ["steel"],
+    "strengths": ["grass", "fairy"],
+    "superStrengths": []
+  },
+  "ground": {
+    "weaknesses": ["water", "grass", "ice"],
+    "resistances": ["poison", "rock"],
+    "noEffect": ["electric"],
+    "strengths": ["fire", "electric", "poison", "rock", "steel"],
+    "superStrengths": []
+  },
+  "flying": {
+    "weaknesses": ["electric", "rock", "steel"],
+    "resistances": ["fighting", "bug", "grass"],
+    "noEffect": ["ground"],
+    "strengths": ["fighting", "bug", "grass"],
+    "superStrengths": []
+  },
+  "psychic": {
+    "weaknesses": ["bug", "ghost", "dark"],
+    "resistances": ["fighting", "psychic"],
+    "noEffect": ["dark"],
+    "strengths": ["fighting", "poison"],
+    "superStrengths": []
+  },
+  "bug": {
+    "weaknesses": ["fire", "flying", "rock"],
+    "resistances": ["fighting", "ground", "grass"],
+    "noEffect": [],
+    "strengths": ["grass", "psychic", "dark"],
+    "superStrengths": []
+  },
+  "rock": {
+    "weaknesses": ["water", "grass", "fighting", "ground", "steel"],
+    "resistances": ["normal", "flying", "poison", "fire", "rock", "steel"],
+    "noEffect": [],
+    "strengths": ["fire", "ice", "flying", "bug"],
+    "superStrengths": []
+  },
+  "ghost": {
+    "weaknesses": ["ghost", "dark"],
+    "resistances": ["poison", "bug"],
+    "noEffect": ["normal", "fighting"],
+    "strengths": ["psychic", "ghost"],
+    "superStrengths": []
+  },
+  "steel": {
+    "weaknesses": ["fire", "fighting", "ground"],
+    "resistances": ["normal", "grass", "ice", "flying", "psychic", "bug", "rock", "dragon", "steel"],
+    "noEffect": ["poison"],
+    "strengths": ["ice", "rock", "fairy"],
+    "superStrengths": []
+  },
+  "dragon": {
+    "weaknesses": ["dragon", "fairy", "ice"],
+    "resistances": ["electric", "fire", "grass", "water"],
+    "noEffect": [],
+    "strengths": ["bug", "fighting", "ground"],
+    "superStrengths": []
+  },
+  "fairy": {
+    "weaknesses": ["poison", "steel"],
+    "resistances": ["bug", "dark", "fighting"],
+    "noEffect": ["dragon"],
+    "strengths": ["dragon", "fighting"],
+    "superStrengths": []
+  },
+  "dark": {
+    "weaknesses": ["bug", "fairy", "fighting"],
+    "resistances": ["dark", "ghost"],
+    "noEffect": [],
+    "strengths": ["ghost", "psychic"],
+    "superStrengths": []
+  }
+
+}

@@ -1,0 +1,94 @@
+<div class="pokemon-head">
+  <a href="/">
+    <h1><img src="../../assets/images/pokedex.png" alt="Pokédex"></h1>
+  </a>
+</div>
+<body>
+
+<div class="container">
+  <div class="image-grid">
+    <img class="main-image" [src]="pokemonDetails?.sprites?.other['official-artwork']?.front_default" alt="Imagen principal">
+    <img class="shiny-image" [src]="pokemonDetails?.sprites?.other['official-artwork']?.front_shiny" alt="Imagen shiny">
+  </div>
+
+  <div class="pokemon-details">
+    <h1>{{ pokemonDetails.name }}</h1>
+    <div class="sprite-grid"> 
+    <img class="main-sprite" [src]="pokemonDetails?.sprites?.versions['generation-v']['black-white'].animated.front_default
+    " alt="sprite">
+    <img class="shiny-sprite" [src]="pokemonDetails?.sprites?.versions['generation-v']['black-white'].animated.front_shiny
+    " alt="shinysprite">
+  </div>
+
+    <div class="type-images-container">
+      <ng-container *ngFor="let type of pokemonTypes">
+        <img [src]="typeImageMappings[type]" alt="{{ type }}" class="type-image">
+      </ng-container>
+    </div>
+    <div class="pokemon-info">
+      <table class="pokemon-table">
+        <tr>
+          <td>ID:</td>
+          <td>{{ pokemonDetails.id | number: '3.0-0' }}</td>
+        </tr>
+        <tr>
+          <td>Altura:</td>
+          <td>{{ pokemonDetails.height / 10 | number: '0.1-2' }} m</td>
+        </tr>
+        <tr>
+          <td>Peso:</td>
+          <td>{{ pokemonDetails.weight / 10 | number: '0.1-2' }} kg</td>
+        </tr>
+      </table>
+    </div>
+    <div class="pokemon-description">
+      <p>{{ pokemonDescription }}</p>
+    </div>
+  </div>
+</div>
+<ul class="pokemon-stats">
+  <h3>Stats</h3>
+  <li *ngFor="let stat of pokemonDetails?.stats" [ngClass]="getColorBarra(stat.base_stat)">
+    <div class="stat-container">
+      <div class="stat-name">{{ stat.stat.name }}:</div>
+      <div class="stat-bar-container">
+        <div class="stat-bar" [style.width]="getStatWidthPercentage(stat.base_stat)"></div>
+        <div class="stat-value">{{ stat.base_stat }}</div>
+      </div>
+    </div>
+  </li>
+</ul>
+<div *ngIf="typeEffectiveness">
+  <h3>Debilidades y resistencias</h3>
+  <table border="0">
+    <tr>
+      <th>x2</th>
+      <th>x0.5</th>
+      <th>x0</th> 
+    </tr>
+    <tr *ngFor="let pokemonType of pokemonTypes">
+      <td>
+        <ul>
+          <li *ngFor="let relation of typeEffectiveness[pokemonType].weaknesses">
+            <img [src]="typeImageMappings[relation]" alt="{{ relation }}" class="type-image">
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li *ngFor="let relation of typeEffectiveness[pokemonType].resistances">
+            <img [src]="typeImageMappings[relation]" alt="{{ relation }}" class="type-image">
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li *ngFor="let relation of typeEffectiveness[pokemonType].noEffect">
+            <img [src]="typeImageMappings[relation]" alt="{{ relation }}" class="type-image">
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>

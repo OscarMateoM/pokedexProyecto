@@ -30,6 +30,36 @@ export class PokemonService {
       })
     );
 }
+
+getPokemonDetails(id: string): Observable<any> {
+  const url = `${this.pokeapi}${id}`;
+  return this.http.get(url);
+}
+
+getPokemonDetailsById(id: number): Observable<any> {
+  const url = `${this.pokeapi}${id}/`;
+  return this.http.get(url);
+}
   
+getPokemonDescription(pokemonNameOrId: string): Observable<string> {
+  const url = `https://pokeapi.co/api/v2/pokemon-species/${pokemonNameOrId}`;
+  return this.http.get(url).pipe(
+    map((speciesData: any) => {
+      const flavorText = speciesData.flavor_text_entries.find(
+        (entry: any) => entry.language.name === 'es'
+      );
+      return flavorText ? flavorText.flavor_text : '';
+    })
+  );
+}
+getTypeEffectiveness(): Observable<any> {
+  const url = 'assets/type-effectiveness.json';
+  return this.http.get(url);
+}
+getPokemonEvolutionChain(pokemonId: number): Observable<any> {
+  const url = `${this.pokeapi}/evolution-chain/${pokemonId}/`;
+  return this.http.get(url);
+}
+
 }
 
