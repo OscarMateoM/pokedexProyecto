@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../pokemon.service';
 import { forkJoin } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 
@@ -14,7 +15,7 @@ export class PokemonlistComponent implements OnInit {
   public searchTerm: string = '';
   public filteredPokemonList: any[] = [];
   selectedTypes: string[] = [];
-  selectedGeneration: number=0;
+  
 
   typeImageMappings: { [key: string]: string } = {
     normal: '../../assets/images/normal.png',
@@ -37,8 +38,10 @@ export class PokemonlistComponent implements OnInit {
     flying: '../../assets/images/volador.png',
  };
 
-  constructor(
-    private pokemonService: PokemonService) {}
+ constructor(
+  private router: Router,
+  private pokemonService: PokemonService
+) {}
 
   ngOnInit() {
     const getPokemonList$ = this.pokemonService.getPokemonList();
@@ -116,21 +119,19 @@ export class PokemonlistComponent implements OnInit {
   }
 
   applyFilters() {
-    let filteredByTypeAndGeneration = this.pokemonList;
-  
-    // Aplicar filtro por tipo
+    let filteredByType = this.pokemonList;
     if (this.selectedTypes.length > 0) {
-      filteredByTypeAndGeneration = filteredByTypeAndGeneration.filter((pokemon: any) => {
+      filteredByType = this.pokemonList.filter((pokemon: any) => {
         return this.selectedTypes.every(type => pokemon.types.includes(type));
       });
     }
   
     if (this.searchTerm) {
-      this.filteredPokemonList = filteredByTypeAndGeneration.filter((pokemon: any) => {
+      this.filteredPokemonList = filteredByType.filter((pokemon: any) => {
         return pokemon.name.toLowerCase().includes(this.searchTerm.toLowerCase());
       });
     } else {
-      this.filteredPokemonList = filteredByTypeAndGeneration;
+      this.filteredPokemonList = filteredByType;
     }
   }
   
@@ -144,5 +145,10 @@ export class PokemonlistComponent implements OnInit {
     return id;
   }
   
+  navigateToDetail(pokemon: any) {
+    console.log('Navigating to details for Pokemon:', pokemon);
+    const pokemonId = this.getPokemonId(pokemon.url);
+    this.router.navigate(['/pokemon', pokemonId]);
+  }
 }
 
