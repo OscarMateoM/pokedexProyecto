@@ -41,7 +41,6 @@ export class PokemonlistComponent implements OnInit {
     private pokemonService: PokemonService) {}
 
   ngOnInit() {
-    
     const getPokemonList$ = this.pokemonService.getPokemonList();
 
     getPokemonList$.subscribe((data: any) => {
@@ -78,9 +77,6 @@ export class PokemonlistComponent implements OnInit {
     }
     this.applyFilters();
   }
-
-  
-
 
   filterByGeneration(generation: number) {
     let startId: number, endId: number;
@@ -129,14 +125,6 @@ export class PokemonlistComponent implements OnInit {
       });
     }
   
-    // Aplicar filtro por generación
-    if (this.selectedGeneration > 0) {
-      filteredByTypeAndGeneration = filteredByTypeAndGeneration.filter((pokemon: any) => {
-        return pokemon.generation === this.selectedGeneration;
-      });
-    }
-  
-    // Aplicar filtro por término de búsqueda
     if (this.searchTerm) {
       this.filteredPokemonList = filteredByTypeAndGeneration.filter((pokemon: any) => {
         return pokemon.name.toLowerCase().includes(this.searchTerm.toLowerCase());
