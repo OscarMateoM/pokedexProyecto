@@ -91,4 +91,21 @@
     </tr>
   </table>
 </div>
+<div *ngIf="evolutionChain">
+  <h3>Cadena Evolutiva:</h3>
+  <ul>
+    <li>{{ evolutionChain.chain.species.name }}</li>
+
+    <li *ngFor="let intermediateEvolution of evolutionChain.chain.evolves_to">
+      {{ intermediateEvolution.species.name }}
+
+      <ul *ngIf="intermediateEvolution.evolves_to && intermediateEvolution.evolves_to.length > 0">
+
+        <li *ngFor="let finalEvolution of intermediateEvolution.evolves_to">
+          {{ finalEvolution.species.name }}
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
 </body>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
 
 
@@ -51,10 +51,20 @@ getTypeEffectiveness(): Observable<any> {
   const url = 'assets/type-effectiveness.json';
   return this.http.get(url);
 }
-getPokemonEvolutionChain(pokemonId: number): Observable<any> {
-  const url = `${this.pokeapi}/evolution-chain/${pokemonId}/`;
+
+getPokemonSpecies(name: string): Observable<any> {
+  const url = `https://pokeapi.co/api/v2/pokemon-species/${name}`;
   return this.http.get(url);
 }
 
+getEvolutionChain(pokemonId: number): Observable<any> {
+  const speciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}/`;
+  return this.http.get(speciesUrl).pipe(
+    switchMap((species: any) => {
+      const evolutionChainUrl = species.evolution_chain.url;
+      return this.http.get(evolutionChainUrl);
+    })
+  );
+}
 }
 

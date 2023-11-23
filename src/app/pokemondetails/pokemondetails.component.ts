@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonService } from '../pokemon.service';
-import { forkJoin } from 'rxjs';
+import { forkJoin, pipe } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -13,6 +13,7 @@ export class PokemonDetailsComponent implements OnInit {
   private _pokemonTypes: string[] = [];
   private _pokemonDescription: any;
   private _typeEffectiveness: any;
+  private _evolutionChain: any;
 
 
   typeImageMappings: { [key: string]: string } = {
@@ -48,12 +49,14 @@ export class PokemonDetailsComponent implements OnInit {
       forkJoin([
         this.pokemonService.getPokemonDetailsById(pokemonId),
         this.pokemonService.getPokemonTypes(pokemonId.toString()),
-        this.pokemonService.getTypeEffectiveness()
+        this.pokemonService.getTypeEffectiveness(),
+        this.pokemonService.getEvolutionChain(pokemonId)
       ]).subscribe(
-        ([pokemonDetails, pokemonTypes, typeEffectiveness]: [any, string[], any]) => {
+        ([pokemonDetails, pokemonTypes, typeEffectiveness, evolutionChain]: [any, string[], any, any]) => {
           this._pokemonDetails = pokemonDetails;
           this._pokemonTypes = pokemonTypes;
           this._typeEffectiveness = typeEffectiveness;
+          this._evolutionChain = evolutionChain;
         }
       );
 
@@ -69,6 +72,9 @@ export class PokemonDetailsComponent implements OnInit {
   }
   get typeEffectiveness() {
     return this._typeEffectiveness;
+  }
+  get evolutionChain() {
+    return this._evolutionChain;
   }
 
   get pokemonDetails() {
@@ -132,9 +138,7 @@ export class PokemonDetailsComponent implements OnInit {
     } else {
       return 'hardgreen';
     }
-  }
-
-  
+  }  
 }
 
 
