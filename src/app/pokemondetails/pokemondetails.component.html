@@ -92,20 +92,27 @@
   </table>
 </div>
 <div *ngIf="evolutionChain">
-  <h3>Cadena Evolutiva:</h3>
+  <h3>Evolution Chain:</h3>
   <ul>
-    <li>{{ evolutionChain.chain.species.name }}</li>
+
+    <li>
+      {{ evolutionChain.chain.species.name }}
+      <span>{{ getEvolutionTrigger(evolutionChain.chain) }}</span>
+    </li>
 
     <li *ngFor="let intermediateEvolution of evolutionChain.chain.evolves_to">
       {{ intermediateEvolution.species.name }}
+      <span>{{ getEvolutionTrigger(intermediateEvolution) }}</span>
 
       <ul *ngIf="intermediateEvolution.evolves_to && intermediateEvolution.evolves_to.length > 0">
 
         <li *ngFor="let finalEvolution of intermediateEvolution.evolves_to">
           {{ finalEvolution.species.name }}
+          <span>{{ getEvolutionTrigger(finalEvolution) }}</span>
         </li>
       </ul>
     </li>
   </ul>
 </div>
+
 </body>

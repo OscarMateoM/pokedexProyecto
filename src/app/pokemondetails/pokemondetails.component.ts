@@ -138,7 +138,14 @@ export class PokemonDetailsComponent implements OnInit {
     } else {
       return 'hardgreen';
     }
-  }  
+  }
+  getEvolutionTrigger(evolution: any): string {
+    if (evolution.evolution_details && evolution.evolution_details.length > 0) {
+      return evolution.evolution_details[0].trigger.name;
+    }
+    return '';
+  }
+    
 }
 
 
