@@ -3,30 +3,6 @@
 <div class="container">
   <input class="search" type="text" placeholder="Buscar Pokémon..." [(ngModel)]="searchTerm" (input)="onSearch()" style="display: flex;">
   <br>
-<<<<<<< HEAD
-  <button (click)="filterByGeneration(1)">Gen 1</button>
-<button (click)="filterByGeneration(2)">Gen 2</button>
-<button (click)="filterByGeneration(3)">Gen 3</button>
-<button (click)="filterByGeneration(4)">Gen 4</button>
-  <button (click)="filterByType('normal')">normal</button>
-  <button class="boton-fire"(click)="filterByType('fire')">fire</button>
-  <button class="boton-water"(click)="filterByType('water')">water</button>
-  <button class="boton-grass"(click)="filterByType('grass')">grass</button>
-  <button class="boton-bug"(click)="filterByType('bug')">bug</button>
-  <button (click)="filterByType('dragon')">dragon</button>
-  <button (click)="filterByType('electric')">electric</button>
-  <button (click)="filterByType('fairy')">fairy</button>
-  <button (click)="filterByType('ground')">ground</button>
-  <button (click)="filterByType('rock')">rock</button>
-  <button (click)="filterByType('steel')">steel</button>
-  <button (click)="filterByType('ice')">ice</button>
-  <button (click)="filterByType('flying')">flying</button>
-  <button (click)="filterByType('dark')">dark</button>
-  <button (click)="filterByType('ghost')">ghost</button>
-  <button (click)="filterByType('fighting')">fighting</button>
-  <button (click)="filterByType('poison')">poison</button>
-  <button (click)="filterByType('psychic')">psychic</button>
-=======
   <br>
   <button (click)="filterByType('normal')"class="boton-normal">Normal</button>
   <button (click)="filterByType('fire')" class="boton-fire">Fuego</button>
@@ -50,7 +26,6 @@
   <button (click)="filterByGeneration(2)"class="boton-generation">Gen 2</button>
   <button (click)="filterByGeneration(3)"class="boton-generation">Gen 3</button>
   <button (click)="filterByGeneration(4)"class="boton-generation">Gen 4</button>
->>>>>>> f4533514375c85b5c191f60c0f0b55bec6ecfdb4
 </div>
 
 <div class="pokemon-grid">
