@@ -210,7 +210,13 @@ getEvolutionGender(evolution: any): string {
     return '';
   }
 }
-
+getEvolutionBeauty(evolution: any): string {
+  if (evolution && evolution.evolution_details && evolution.evolution_details.length > 0 && evolution.evolution_details[0].min_beauty) {
+    return "min " + evolution.evolution_details[0].min_beauty + " beauty";
+} else {
+    return '';
+}
+}
 }
 
 

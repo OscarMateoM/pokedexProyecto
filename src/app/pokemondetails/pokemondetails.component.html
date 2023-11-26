@@ -96,12 +96,12 @@
       <img [src]="getPokemonImage(evolutionChain.chain.species.name)" alt="{{ evolutionChain.chain.species.name }}">
       <ng-container *ngFor="let intermediateEvolution of evolutionChain.chain.evolves_to">
         <div class="evolution-container">
-          <span class="evolution-trigger">{{ getEvolutionTrigger(intermediateEvolution) }} {{ getEvolutionLevel(intermediateEvolution) }} {{ getEvolutionItem(intermediateEvolution) }} {{ getEvolutionHappiness(intermediateEvolution) }} {{ getEvolutionLocation(intermediateEvolution) }} {{ getEvolutionKnownMoveType(intermediateEvolution) }} {{ getEvolutionKnownMove(intermediateEvolution) }} {{ getEvolutionHeldItem(intermediateEvolution) }} {{ getEvolutionGender(intermediateEvolution) }} </span>
+          <span class="evolution-trigger">{{ getEvolutionTrigger(intermediateEvolution) }} {{ getEvolutionLevel(intermediateEvolution) }} {{ getEvolutionItem(intermediateEvolution) }} {{ getEvolutionHappiness(intermediateEvolution) }} {{ getEvolutionLocation(intermediateEvolution) }} {{ getEvolutionKnownMoveType(intermediateEvolution) }} {{ getEvolutionKnownMove(intermediateEvolution) }} {{ getEvolutionHeldItem(intermediateEvolution) }} {{ getEvolutionGender(intermediateEvolution) }} {{ getEvolutionBeauty(intermediateEvolution) }} </span>
           <img [src]="getPokemonImage(intermediateEvolution.species.name)" alt="{{ intermediateEvolution.species.name }}">
           <ng-container *ngIf="intermediateEvolution.evolves_to && intermediateEvolution.evolves_to.length > 0">
             <ng-container *ngFor="let finalEvolution of intermediateEvolution.evolves_to">
               <div class="evolution-container">
-                <span class="evolution-trigger">{{ getEvolutionTrigger(finalEvolution) }} {{ getEvolutionLevel(finalEvolution) }} {{ getEvolutionItem(finalEvolution) }} {{ getEvolutionLocation(finalEvolution) }} {{ getEvolutionKnownMoveType(finalEvolution) }} {{ getEvolutionKnownMove(finalEvolution) }} {{ getEvolutionHeldItem(finalEvolution) }} {{ getEvolutionGender(finalEvolution) }}</span>
+                <span class="evolution-trigger">{{ getEvolutionTrigger(finalEvolution) }} {{ getEvolutionLevel(finalEvolution) }} {{ getEvolutionItem(finalEvolution) }} {{ getEvolutionHappiness(finalEvolution) }} {{ getEvolutionLocation(finalEvolution) }} {{ getEvolutionKnownMoveType(finalEvolution) }} {{ getEvolutionKnownMove(finalEvolution) }} {{ getEvolutionHeldItem(finalEvolution) }} {{ getEvolutionGender(finalEvolution) }} {{ getEvolutionBeauty(finalEvolution) }}</span>
                 <img [src]="getPokemonImage(finalEvolution.species.name)" alt="{{ finalEvolution.species.name }}">
               </div>
             </ng-container>
