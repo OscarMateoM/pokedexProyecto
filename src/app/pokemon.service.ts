@@ -35,7 +35,15 @@ getPokemonDetailsById(id: number): Observable<any> {
   const url = `${this.pokeapi}${id}/`;
   return this.http.get(url);
 }
-  
+getPokemonDetailsByName(pokemonName: string): Observable<any> {
+  const url = `${this.pokeapi}${pokemonName}/`;
+  return this.http.get(url);
+}
+getPokemonImageByName(name: string): Observable<any> {
+  const url = `${this.pokeapi}${name}/`;
+  return this.http.get(url);
+}
+
 getPokemonDescription(pokemonNameOrId: string): Observable<string> {
   const url = `https://pokeapi.co/api/v2/pokemon-species/${pokemonNameOrId}`;
   return this.http.get(url).pipe(

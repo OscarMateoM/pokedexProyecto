@@ -7,6 +7,7 @@ import { PokemonlistComponent } from './pokemonlist/pokemonlist.component';
 const routes: Routes = [
   { path: '', component: PokemonlistComponent},
   { path: 'pokemon/:id', component: PokemonDetailsComponent },
+  { path: 'pokemon/:name', component: PokemonDetailsComponent },
 ];
 
 @NgModule({
