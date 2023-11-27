@@ -90,25 +90,39 @@
     </tr>
   </table>
 </div>
-  <div *ngIf="evolutionChain">
-    <h3>Cadena Evolutiva:</h3>
-      <img [src]="getPokemonImage(evolutionChain.chain.species.name)" alt="{{ evolutionChain.chain.species.name }}">
-      <span class="firstevo-text">{{ evolutionChain.chain.species.name }}</span>
+<div *ngIf="evolutionChain">
+  <h3>Cadena Evolutiva:</h3>
+  <div class="evolution-line">
+    <div class="evolution-column">
+      <div class="evolution-item">
+        <img [src]="getPokemonImage(evolutionChain.chain.species.name)" alt="{{ evolutionChain.chain.species.name }}">
+        <span class="firstevo-text">{{ evolutionChain.chain.species.name }}</span>
+      </div>
+    </div>
+
+    <div class="evolution-column">
       <ng-container *ngFor="let intermediateEvolution of evolutionChain.chain.evolves_to">
-        <div class="evolution-container">
+        <div class="evolution-item">
           <span class="evolution-trigger">{{ getEvolutionTrigger(intermediateEvolution) }} {{ getEvolutionLevel(intermediateEvolution) }} {{ getEvolutionItem(intermediateEvolution) }} {{ getEvolutionHappiness(intermediateEvolution) }} {{ getEvolutionLocation(intermediateEvolution) }} {{ getEvolutionKnownMoveType(intermediateEvolution) }} {{ getEvolutionKnownMove(intermediateEvolution) }} {{ getEvolutionHeldItem(intermediateEvolution) }} {{ getEvolutionGender(intermediateEvolution) }} {{ getEvolutionBeauty(intermediateEvolution) }} </span>
           <img [src]="getPokemonImage(intermediateEvolution.species.name)" alt="{{ intermediateEvolution.species.name }}">
           <span class="intermediateevo-text">{{ intermediateEvolution.species.name }}</span>
-          <ng-container *ngIf="intermediateEvolution.evolves_to && intermediateEvolution.evolves_to.length > 0">
-            <ng-container *ngFor="let finalEvolution of intermediateEvolution.evolves_to">
-              <div class="evolution-container">
-                <span class="evolution-trigger">{{ getEvolutionTrigger(finalEvolution) }} {{ getEvolutionLevel(finalEvolution) }} {{ getEvolutionItem(finalEvolution) }} {{ getEvolutionHappiness(finalEvolution) }} {{ getEvolutionLocation(finalEvolution) }} {{ getEvolutionKnownMoveType(finalEvolution) }} {{ getEvolutionKnownMove(finalEvolution) }} {{ getEvolutionHeldItem(finalEvolution) }} {{ getEvolutionGender(finalEvolution) }} {{ getEvolutionBeauty(finalEvolution) }}</span>
-                <img [src]="getPokemonImage(finalEvolution.species.name)" alt="{{ finalEvolution.species.name }}">
-                <span class="finalevo-text">{{ finalEvolution.species.name }}</span>
-              </div>
-            </ng-container>
-          </ng-container>
         </div>
       </ng-container>
+    </div>
+
+    <div class="evolution-column">
+      <ng-container *ngFor="let intermediateEvolution of evolutionChain.chain.evolves_to">
+        <ng-container *ngIf="intermediateEvolution.evolves_to && intermediateEvolution.evolves_to.length > 0">
+          <ng-container *ngFor="let finalEvolution of intermediateEvolution.evolves_to">
+            <div class="evolution-item">
+              <span class="evolution-trigger">{{ getEvolutionTrigger(finalEvolution) }} {{ getEvolutionLevel(finalEvolution) }} {{ getEvolutionItem(finalEvolution) }} {{ getEvolutionHappiness(finalEvolution) }} {{ getEvolutionLocation(finalEvolution) }} {{ getEvolutionKnownMoveType(finalEvolution) }} {{ getEvolutionKnownMove(finalEvolution) }} {{ getEvolutionHeldItem(finalEvolution) }} {{ getEvolutionGender(finalEvolution) }} {{ getEvolutionBeauty(finalEvolution) }}</span>
+              <img [src]="getPokemonImage(finalEvolution.species.name)" alt="{{ finalEvolution.species.name }}">
+              <span class="finalevo-text">{{ finalEvolution.species.name }}</span>
+            </div>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
   </div>
+</div>
 </body>
