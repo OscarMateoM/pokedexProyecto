@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
 
 
@@ -40,7 +40,15 @@ getPokemonDetailsById(id: number): Observable<any> {
   const url = `${this.pokeapi}${id}/`;
   return this.http.get(url);
 }
-  
+getPokemonDetailsByName(pokemonName: string): Observable<any> {
+  const url = `${this.pokeapi}${pokemonName}/`;
+  return this.http.get(url);
+}
+getPokemonImageByName(name: string): Observable<any> {
+  const url = `${this.pokeapi}${name}/`;
+  return this.http.get(url);
+}
+
 getPokemonDescription(pokemonNameOrId: string): Observable<string> {
   const url = `https://pokeapi.co/api/v2/pokemon-species/${pokemonNameOrId}`;
   return this.http.get(url).pipe(
@@ -56,10 +64,20 @@ getTypeEffectiveness(): Observable<any> {
   const url = 'assets/type-effectiveness.json';
   return this.http.get(url);
 }
-getPokemonEvolutionChain(pokemonId: number): Observable<any> {
-  const url = `${this.pokeapi}/evolution-chain/${pokemonId}/`;
+
+getPokemonSpecies(name: string): Observable<any> {
+  const url = `https://pokeapi.co/api/v2/pokemon-species/${name}`;
   return this.http.get(url);
 }
 
+getEvolutionChain(pokemonId: number): Observable<any> {
+  const speciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}/`;
+  return this.http.get(speciesUrl).pipe(
+    switchMap((species: any) => {
+      const evolutionChainUrl = species.evolution_chain.url;
+      return this.http.get(evolutionChainUrl);
+    })
+  );
+}
 }
 

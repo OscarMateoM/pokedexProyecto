@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonService } from '../pokemon.service';
-import { forkJoin } from 'rxjs';
+import { Observable, forkJoin, map, pipe } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -13,6 +13,7 @@ export class PokemonDetailsComponent implements OnInit {
   private _pokemonTypes: string[] = [];
   private _pokemonDescription: any;
   private _typeEffectiveness: any;
+  private _evolutionChain: any;
 
 
   typeImageMappings: { [key: string]: string } = {
@@ -48,12 +49,14 @@ export class PokemonDetailsComponent implements OnInit {
       forkJoin([
         this.pokemonService.getPokemonDetailsById(pokemonId),
         this.pokemonService.getPokemonTypes(pokemonId.toString()),
-        this.pokemonService.getTypeEffectiveness()
+        this.pokemonService.getTypeEffectiveness(),
+        this.pokemonService.getEvolutionChain(pokemonId)
       ]).subscribe(
-        ([pokemonDetails, pokemonTypes, typeEffectiveness]: [any, string[], any]) => {
+        ([pokemonDetails, pokemonTypes, typeEffectiveness, evolutionChain]: [any, string[], any, any]) => {
           this._pokemonDetails = pokemonDetails;
           this._pokemonTypes = pokemonTypes;
           this._typeEffectiveness = typeEffectiveness;
+          this._evolutionChain = evolutionChain;
         }
       );
 
@@ -67,8 +70,16 @@ export class PokemonDetailsComponent implements OnInit {
       }
     );
   }
+  getPokemonImage(name: string): string {
+    const capitalizedPokemonName = name.charAt(0).toUpperCase() + name.slice(1);
+    return `https://images.wikidexcdn.net/mwuploads/wikidex/thumb/9/95/latest/20160817212623/${capitalizedPokemonName}.png/200px-${capitalizedPokemonName}.png`;
+  }
+  
   get typeEffectiveness() {
     return this._typeEffectiveness;
+  }
+  get evolutionChain() {
+    return this._evolutionChain;
   }
 
   get pokemonDetails() {
@@ -133,8 +144,79 @@ export class PokemonDetailsComponent implements OnInit {
       return 'hardgreen';
     }
   }
+  getEvolutionTrigger(evolution: any): string {
+    if (evolution.evolution_details && evolution.evolution_details.length > 0) {
+      return evolution.evolution_details[0].trigger.name;
+    }
+    return '';
+  }
+  getEvolutionLevel(evolution: any): string {
+      return evolution.evolution_details[0].min_level;
+  }
+  getEvolutionItem(evolution: any): string {
+    if (evolution && evolution.evolution_details && evolution.evolution_details.length > 0 && evolution.evolution_details[0].item && evolution.evolution_details[0].item.name) {
+      return evolution.evolution_details[0].item.name;
+  } else {
+      return '';
+  }
+}
+getEvolutionHappiness(evolution: any): string {
+  if (evolution && evolution.evolution_details && evolution.evolution_details.length > 0 && evolution.evolution_details[0].min_happiness) {
+    return evolution.evolution_details[0].min_happiness + " happiness";
+} else {
+    return '';
+}
+}
+getEvolutionLocation(evolution: any): string {
+  if (evolution && evolution.evolution_details && evolution.evolution_details.length > 0 && evolution.evolution_details[0].location && evolution.evolution_details[0].location.name) {
+    return evolution.evolution_details[0].location.name;
+} else {
+    return '';
+}
+}
+getEvolutionKnownMoveType(evolution: any): string {
+  if (evolution && evolution.evolution_details && evolution.evolution_details.length > 0 && evolution.evolution_details[0].known_move_type && evolution.evolution_details[0].known_move_type.name) {
+    return "known move type " + evolution.evolution_details[0].known_move_type.name ;
+} else {
+    return '';
+}
+}
+getEvolutionKnownMove(evolution: any): string {
+  if (evolution && evolution.evolution_details && evolution.evolution_details.length > 0 && evolution.evolution_details[0].known_move && evolution.evolution_details[0].known_move.name) {
+    return "known move " + evolution.evolution_details[0].known_move.name ;
+} else {
+    return '';
+}
+}
+getEvolutionHeldItem(evolution: any): string {
+  if (evolution && evolution.evolution_details && evolution.evolution_details.length > 0 && evolution.evolution_details[0].held_item && evolution.evolution_details[0].held_item.name) {
+    return "held " + evolution.evolution_details[0].held_item.name ;
+} else {
+    return '';
+}
+}
+getEvolutionGender(evolution: any): string {
+  if (evolution && evolution.evolution_details && evolution.evolution_details.length > 0 && evolution.evolution_details[0].gender) {
+    const gender = evolution.evolution_details[0].gender;
 
-  
+    if (gender === 1) {
+      return 'Female gender';
+    } else if (gender === 2) {
+      return 'Male gender';
+    } else {
+      return '';
+    }
+  } else {
+    return '';
+  }
+}
+getEvolutionBeauty(evolution: any): string {
+  if (evolution && evolution.evolution_details && evolution.evolution_details.length > 0 && evolution.evolution_details[0].min_beauty) {
+    return "min " + evolution.evolution_details[0].min_beauty + " beauty";
+} else {
+    return '';
+}
+}
 }
 
 
