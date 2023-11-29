@@ -95,17 +95,21 @@
   <div class="evolution-line">
     <div class="evolution-column">
       <div class="evolution-item">
+        <a [routerLink]="['/pokemon', getPokemonId(evolutionChain.chain.species.name)]" href="#">
         <img [src]="getPokemonImage(evolutionChain.chain.species.name)" alt="{{ evolutionChain.chain.species.name }}">
         <span class="firstevo-text">{{ evolutionChain.chain.species.name }}</span>
+        </a>
       </div>
     </div>
 
     <div class="evolution-column">
       <ng-container *ngFor="let intermediateEvolution of evolutionChain.chain.evolves_to">
         <div class="evolution-item">
-          <span class="evolution-trigger">{{ getEvolutionTrigger(intermediateEvolution) }} {{ getEvolutionLevel(intermediateEvolution) }} {{ getEvolutionItem(intermediateEvolution) }} {{ getEvolutionHappiness(intermediateEvolution) }} {{ getEvolutionLocation(intermediateEvolution) }} {{ getEvolutionKnownMoveType(intermediateEvolution) }} {{ getEvolutionKnownMove(intermediateEvolution) }} {{ getEvolutionHeldItem(intermediateEvolution) }} {{ getEvolutionGender(intermediateEvolution) }} {{ getEvolutionBeauty(intermediateEvolution) }} </span>
+          <span class="evolution-trigger">{{ getEvolutionTrigger(intermediateEvolution) }} {{ getEvolutionLevel(intermediateEvolution) }} {{ getEvolutionItem(intermediateEvolution) }} {{ getEvolutionHappiness(intermediateEvolution) }} {{ getEvolutionLocation(intermediateEvolution) }} {{ getEvolutionKnownMoveType(intermediateEvolution) }} {{ getEvolutionKnownMove(intermediateEvolution) }} {{ getEvolutionHeldItem(intermediateEvolution) }} {{ getEvolutionGender(intermediateEvolution) }} {{ getEvolutionBeauty(intermediateEvolution) }} {{ getEvolutionStats(intermediateEvolution) }} </span>
+          <a [routerLink]="['/pokemon', getPokemonId(intermediateEvolution.species.name)]">
           <img [src]="getPokemonImage(intermediateEvolution.species.name)" alt="{{ intermediateEvolution.species.name }}">
           <span class="intermediateevo-text">{{ intermediateEvolution.species.name }}</span>
+          </a>
         </div>
       </ng-container>
     </div>
@@ -115,9 +119,11 @@
         <ng-container *ngIf="intermediateEvolution.evolves_to && intermediateEvolution.evolves_to.length > 0">
           <ng-container *ngFor="let finalEvolution of intermediateEvolution.evolves_to">
             <div class="evolution-item">
-              <span class="evolution-trigger">{{ getEvolutionTrigger(finalEvolution) }} {{ getEvolutionLevel(finalEvolution) }} {{ getEvolutionItem(finalEvolution) }} {{ getEvolutionHappiness(finalEvolution) }} {{ getEvolutionLocation(finalEvolution) }} {{ getEvolutionKnownMoveType(finalEvolution) }} {{ getEvolutionKnownMove(finalEvolution) }} {{ getEvolutionHeldItem(finalEvolution) }} {{ getEvolutionGender(finalEvolution) }} {{ getEvolutionBeauty(finalEvolution) }}</span>
+              <span class="evolution-trigger">{{ getEvolutionTrigger(finalEvolution) }} {{ getEvolutionLevel(finalEvolution) }} {{ getEvolutionItem(finalEvolution) }} {{ getEvolutionHappiness(finalEvolution) }} {{ getEvolutionLocation(finalEvolution) }} {{ getEvolutionKnownMoveType(finalEvolution) }} {{ getEvolutionKnownMove(finalEvolution) }} {{ getEvolutionHeldItem(finalEvolution) }} {{ getEvolutionGender(finalEvolution) }} {{ getEvolutionBeauty(finalEvolution) }} {{ getEvolutionStats(finalEvolution) }} </span>
+              <a [routerLink]="['/pokemon', getPokemonId(finalEvolution.species.name)]">
               <img [src]="getPokemonImage(finalEvolution.species.name)" alt="{{ finalEvolution.species.name }}">
               <span class="finalevo-text">{{ finalEvolution.species.name }}</span>
+              </a>
             </div>
           </ng-container>
         </ng-container>

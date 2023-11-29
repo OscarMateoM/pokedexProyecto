@@ -9,8 +9,11 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class PokemonService {
   private pokeapi = 'https://pokeapi.co/api/v2/pokemon/';
-
-  constructor(private http: HttpClient) {}
+  private pokemonIdUrl = '../assets/pokemon-id.json';
+  private pokemonList: { [key: string]: number } = {};
+  constructor(private http: HttpClient) {
+    this.loadPokemonData();
+  }
 
   getPokemonList() {
     const url = `${this.pokeapi}?limit=493`;
@@ -74,5 +77,26 @@ getEvolutionChain(pokemonId: number): Observable<any> {
     })
   );
 }
+getPokemonIdByName(name: string): Observable<number> {
+  const url = '../assets/pokemon-id.json';
+  return this.http.get<number>(url);
 }
+private loadPokemonData() {
+  this.http.get<{ [key: string]: number }>(this.pokemonIdUrl).subscribe(
+    (data) => {
+      this.pokemonList = data;
+      console.log('Pokemon data loaded successfully:', data);
+    },
+    (error) => {
+      console.error('Error loading Pokemon data:', error);
+    }
+  );
+}
+
+
+getPokemonId(pokemonName: string): number | undefined {
+  return this.pokemonList[pokemonName.toLowerCase()];
+}
+}
+
 

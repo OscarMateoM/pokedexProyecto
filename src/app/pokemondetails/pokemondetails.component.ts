@@ -63,6 +63,7 @@ export class PokemonDetailsComponent implements OnInit {
       this.getPokemonDescription(pokemonId);
     });
   }
+  
   getPokemonDetails(pokemonId: number) {
     this.pokemonService.getPokemonDetailsById(pokemonId).subscribe(
       (data: any) => {
@@ -217,6 +218,30 @@ getEvolutionBeauty(evolution: any): string {
     return '';
 }
 }
+getEvolutionStats(evolution: any): string {
+  if (evolution && evolution.evolution_details && evolution.evolution_details.length > 0 && evolution.evolution_details[0].relative_physical_stats) {
+    const stat = evolution.evolution_details[0].relative_physical_stats;
+
+    if (stat === 1) {
+      return 'attack > defense';
+    } else if (stat === -1) {
+      return 'attack < defense';
+    } else if (stat === 0) {
+      return 'attack = defense';
+    } else {
+      return '';
+    }
+  } else {
+    return '';
+  }
 }
+
+getPokemonId(pokemonName: string): number | undefined {
+  return this.pokemonService.getPokemonId(pokemonName);
+}
+}
+
+
+
 
 
