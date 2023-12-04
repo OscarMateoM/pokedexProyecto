@@ -38,10 +38,6 @@
           <td>Peso:</td>
           <td>{{ pokemonDetails.weight / 10 | number: '0.1-2' }} kg</td>
         </tr>
-        <tr>
-          <td>Movimientos:</td>
-          <td>{{ pokemonDetails.moves[1].move.name }}</td>
-        </tr>
       </table>
     </div>
     <div class="pokemon-description">
@@ -135,12 +131,16 @@
     </div>
   </div>
 </div>
-<table>
+<table class="table-move">
   <thead>
     <tr>
       <th>Movimiento</th>
-      <th>Nivel Aprendido</th>
-      <th>Método de Aprendizaje</th>
+      <th>Nivel</th>
+      <th>Método</th>
+      <th>Tipo</th>
+      <th>Categoría</th>
+      <th>Potencia</th>
+      <th>Precisión</th>
     </tr>
   </thead>
   <tbody>
@@ -150,17 +150,25 @@
           <td>{{ move.move.name }}</td>
           <td>{{ move.version_group_details[0].level_learned_at }}</td>
           <td>{{ move.version_group_details[0].move_learn_method.name }}</td>
+          <td>{{ move.additionalDetails?.type.name }}</td>
+          <td>{{ move.additionalDetails?.damage_class.name }}</td>
+          <td>{{ move.additionalDetails?.power }}</td>
+          <td>{{ move.additionalDetails?.accuracy }}</td>
         </tr>
       </ng-container>
     </ng-container>
   </tbody>
 </table>
 
-<table>
+<table class="table-move">
   <thead>
     <tr>
       <th>Movimiento</th>
       <th>Máquina</th>
+      <th>Tipo</th>
+      <th>Categoría</th>
+      <th>Potencia</th>
+      <th>Precisión</th>
     </tr>
   </thead>
   <tbody>
@@ -169,6 +177,10 @@
         <tr>
           <td>{{ move.move.name }}</td>
           <td>{{ move.version_group_details[0].move_learn_method.name }}</td>
+          <td>{{ move.additionalDetails?.type.name }}</td>
+          <td>{{ move.additionalDetails?.damage_class.name }}</td>
+          <td>{{ move.additionalDetails?.power }}</td>
+          <td>{{ move.additionalDetails?.accuracy }}</td>
         </tr>
       </ng-container>
     </ng-container>

@@ -64,6 +64,7 @@ export class PokemonDetailsComponent implements OnInit {
     });
   }
   
+
   getPokemonDetails(pokemonId: number) {
     this.pokemonService.getPokemonDetailsById(pokemonId).subscribe(
       (data: any) => {
@@ -238,6 +239,9 @@ getEvolutionStats(evolution: any): string {
 
 getPokemonId(pokemonName: string): number | undefined {
   return this.pokemonService.getPokemonId(pokemonName);
+}
+getMoveDetailsByFullUrl(moveFullUrl: string): Observable<any> {
+  return this.pokemonService.getMoveDetailsByFullUrl(moveFullUrl);
 }
 }
 

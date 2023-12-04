@@ -97,6 +97,9 @@ private loadPokemonData() {
 getPokemonId(pokemonName: string): number | undefined {
   return this.pokemonList[pokemonName.toLowerCase()];
 }
+getMoveDetailsByFullUrl(moveFullUrl: string): Observable<any> {
+  return this.http.get(moveFullUrl);
+}
 }
 
 

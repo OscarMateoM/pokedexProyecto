@@ -182,3 +182,8 @@ ul {
   background-color: #effa58;
   border-radius: 20px;
 }
+.table-move{
+  font-family: 'PokemonSolid';
+  text-transform: capitalize;
+  letter-spacing: 4px;
+}
