@@ -150,5 +150,8 @@ export class PokemonlistComponent implements OnInit {
     const pokemonId = this.getPokemonId(pokemon.url);
     this.router.navigate(['/pokemon', pokemonId]);
   }
+
+ 
+
 }
 
