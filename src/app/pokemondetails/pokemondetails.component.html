@@ -38,6 +38,10 @@
           <td>Peso:</td>
           <td>{{ pokemonDetails.weight / 10 | number: '0.1-2' }} kg</td>
         </tr>
+        <tr>
+          <td>Movimientos:</td>
+          <td>{{ pokemonDetails.moves[1].move.name }}</td>
+        </tr>
       </table>
     </div>
     <div class="pokemon-description">
@@ -131,4 +135,43 @@
     </div>
   </div>
 </div>
+<table>
+  <thead>
+    <tr>
+      <th>Movimiento</th>
+      <th>Nivel Aprendido</th>
+      <th>Método de Aprendizaje</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let move of pokemonDetails?.moves">
+      <ng-container *ngIf="move.version_group_details[0].move_learn_method.name === 'level-up'">
+        <tr>
+          <td>{{ move.move.name }}</td>
+          <td>{{ move.version_group_details[0].level_learned_at }}</td>
+          <td>{{ move.version_group_details[0].move_learn_method.name }}</td>
+        </tr>
+      </ng-container>
+    </ng-container>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Movimiento</th>
+      <th>Máquina</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let move of pokemonDetails?.moves">
+      <ng-container *ngIf="move.version_group_details[0].move_learn_method.name === 'machine'">
+        <tr>
+          <td>{{ move.move.name }}</td>
+          <td>{{ move.version_group_details[0].move_learn_method.name }}</td>
+        </tr>
+      </ng-container>
+    </ng-container>
+  </tbody>
+</table>
 </body>
