@@ -38,6 +38,10 @@
           <td>Peso:</td>
           <td>{{ pokemonDetails.weight / 10 | number: '0.1-2' }} kg</td>
         </tr>
+        <tr>
+          <td>Movimientos:</td>
+          <td>{{ pokemonDetails.moves[1].move.name }}</td>
+        </tr>
       </table>
     </div>
     <div class="pokemon-description">
@@ -90,25 +94,84 @@
     </tr>
   </table>
 </div>
-  <div *ngIf="evolutionChain">
-    <h3>Cadena Evolutiva:</h3>
-      <img [src]="getPokemonImage(evolutionChain.chain.species.name)" alt="{{ evolutionChain.chain.species.name }}">
-      <span class="firstevo-text">{{ evolutionChain.chain.species.name }}</span>
+<div *ngIf="evolutionChain">
+  <h3>Cadena Evolutiva:</h3>
+  <div class="evolution-line">
+    <div class="evolution-column">
+      <div class="evolution-item">
+        <a [routerLink]="['/pokemon', getPokemonId(evolutionChain.chain.species.name)]" href="#">
+        <img [src]="getPokemonImage(evolutionChain.chain.species.name)" alt="{{ evolutionChain.chain.species.name }}">
+        <span class="firstevo-text">{{ evolutionChain.chain.species.name }}</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="evolution-column">
       <ng-container *ngFor="let intermediateEvolution of evolutionChain.chain.evolves_to">
-        <div class="evolution-container">
-          <span class="evolution-trigger">{{ getEvolutionTrigger(intermediateEvolution) }} {{ getEvolutionLevel(intermediateEvolution) }} {{ getEvolutionItem(intermediateEvolution) }} {{ getEvolutionHappiness(intermediateEvolution) }} {{ getEvolutionLocation(intermediateEvolution) }} {{ getEvolutionKnownMoveType(intermediateEvolution) }} {{ getEvolutionKnownMove(intermediateEvolution) }} {{ getEvolutionHeldItem(intermediateEvolution) }} {{ getEvolutionGender(intermediateEvolution) }} {{ getEvolutionBeauty(intermediateEvolution) }} </span>
+        <div class="evolution-item">
+          <span class="evolution-trigger">{{ getEvolutionTrigger(intermediateEvolution) }} {{ getEvolutionLevel(intermediateEvolution) }} {{ getEvolutionItem(intermediateEvolution) }} {{ getEvolutionHappiness(intermediateEvolution) }} {{ getEvolutionLocation(intermediateEvolution) }} {{ getEvolutionKnownMoveType(intermediateEvolution) }} {{ getEvolutionKnownMove(intermediateEvolution) }} {{ getEvolutionHeldItem(intermediateEvolution) }} {{ getEvolutionGender(intermediateEvolution) }} {{ getEvolutionBeauty(intermediateEvolution) }} {{ getEvolutionStats(intermediateEvolution) }} </span>
+          <a [routerLink]="['/pokemon', getPokemonId(intermediateEvolution.species.name)]">
           <img [src]="getPokemonImage(intermediateEvolution.species.name)" alt="{{ intermediateEvolution.species.name }}">
           <span class="intermediateevo-text">{{ intermediateEvolution.species.name }}</span>
-          <ng-container *ngIf="intermediateEvolution.evolves_to && intermediateEvolution.evolves_to.length > 0">
-            <ng-container *ngFor="let finalEvolution of intermediateEvolution.evolves_to">
-              <div class="evolution-container">
-                <span class="evolution-trigger">{{ getEvolutionTrigger(finalEvolution) }} {{ getEvolutionLevel(finalEvolution) }} {{ getEvolutionItem(finalEvolution) }} {{ getEvolutionHappiness(finalEvolution) }} {{ getEvolutionLocation(finalEvolution) }} {{ getEvolutionKnownMoveType(finalEvolution) }} {{ getEvolutionKnownMove(finalEvolution) }} {{ getEvolutionHeldItem(finalEvolution) }} {{ getEvolutionGender(finalEvolution) }} {{ getEvolutionBeauty(finalEvolution) }}</span>
-                <img [src]="getPokemonImage(finalEvolution.species.name)" alt="{{ finalEvolution.species.name }}">
-                <span class="finalevo-text">{{ finalEvolution.species.name }}</span>
-              </div>
-            </ng-container>
-          </ng-container>
+          </a>
         </div>
       </ng-container>
+    </div>
+
+    <div class="evolution-column">
+      <ng-container *ngFor="let intermediateEvolution of evolutionChain.chain.evolves_to">
+        <ng-container *ngIf="intermediateEvolution.evolves_to && intermediateEvolution.evolves_to.length > 0">
+          <ng-container *ngFor="let finalEvolution of intermediateEvolution.evolves_to">
+            <div class="evolution-item">
+              <span class="evolution-trigger">{{ getEvolutionTrigger(finalEvolution) }} {{ getEvolutionLevel(finalEvolution) }} {{ getEvolutionItem(finalEvolution) }} {{ getEvolutionHappiness(finalEvolution) }} {{ getEvolutionLocation(finalEvolution) }} {{ getEvolutionKnownMoveType(finalEvolution) }} {{ getEvolutionKnownMove(finalEvolution) }} {{ getEvolutionHeldItem(finalEvolution) }} {{ getEvolutionGender(finalEvolution) }} {{ getEvolutionBeauty(finalEvolution) }} {{ getEvolutionStats(finalEvolution) }} </span>
+              <a [routerLink]="['/pokemon', getPokemonId(finalEvolution.species.name)]">
+              <img [src]="getPokemonImage(finalEvolution.species.name)" alt="{{ finalEvolution.species.name }}">
+              <span class="finalevo-text">{{ finalEvolution.species.name }}</span>
+              </a>
+            </div>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
   </div>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Movimiento</th>
+      <th>Nivel Aprendido</th>
+      <th>Método de Aprendizaje</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let move of pokemonDetails?.moves">
+      <ng-container *ngIf="move.version_group_details[0].move_learn_method.name === 'level-up'">
+        <tr>
+          <td>{{ move.move.name }}</td>
+          <td>{{ move.version_group_details[0].level_learned_at }}</td>
+          <td>{{ move.version_group_details[0].move_learn_method.name }}</td>
+        </tr>
+      </ng-container>
+    </ng-container>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Movimiento</th>
+      <th>Máquina</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let move of pokemonDetails?.moves">
+      <ng-container *ngIf="move.version_group_details[0].move_learn_method.name === 'machine'">
+        <tr>
+          <td>{{ move.move.name }}</td>
+          <td>{{ move.version_group_details[0].move_learn_method.name }}</td>
+        </tr>
+      </ng-container>
+    </ng-container>
+  </tbody>
+</table>
 </body>
