@@ -2,13 +2,19 @@
   text-align: center;
 }
 .search {
-  width: 300px;
   margin: 0 auto;
   text-align: center;
   background-image: url(../../assets/images/lupa.png);
   background-size: 10%;
   background-repeat: no-repeat;
+  width: 350px;
   padding: 10px;
+  padding-right: 35px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+  transition: all 0.3s ease; 
 }
 .pokemon-grid {
     display: flex;
@@ -56,6 +62,15 @@
     background-color: #A8A77A;
     border-radius: 20px;
   }
+
+  .boton-normal:hover {
+    background-color: rgb(172, 128, 57);
+  }
+
+  .boton-normal:active {
+    transform: scale(0.9);
+    background-color: rgb(172, 128, 57);
+  }
   
   .boton-fire {
     text-decoration: none;
@@ -67,6 +82,15 @@
     border-radius: 20px;
   }
   
+  .boton-fire:hover {
+    background-color: rgb(172, 88, 57);
+  }
+
+  .boton-fire:active {
+    transform: scale(0.9);
+    background-color: rgb(172, 88, 57);
+  }
+
   .boton-water {
     text-decoration: none;
     font-weight: 600;
@@ -76,6 +100,15 @@
     background-color: #6390F0;
     border-radius: 20px;
   }
+
+  .boton-water:hover {
+    background-color: rgb(24, 27, 227);
+  }
+
+  .boton-water:active {
+    transform: scale(0.9);
+    background-color: rgb(24, 27, 227);
+  }
   
   .boton-electric {
     text-decoration: none;
@@ -83,10 +116,18 @@
     font-size: 16px;
     color: #ffffff;
     padding: 10px 20px;
-    background-color: #F7D02C;
+    background-color:rgb(248, 223, 33); 
     border-radius: 20px;
   }
   
+  .boton-electric:hover {
+    background-color: #F7D02C;
+  }
+
+  .boton-electric:active {
+    transform: scale(0.9);
+  }
+
   .boton-grass {
     text-decoration: none;
     font-weight: 600;
@@ -95,6 +136,14 @@
     padding: 10px 20px;
     background-color: #7AC74C;
     border-radius: 20px;
+  }
+
+  .boton-grass:hover {
+    background-color: rgb(32, 172, 16);
+  }
+
+  .boton-grass:active {
+    transform: scale(0.9);
   }
   
   .boton-ice {
@@ -107,6 +156,14 @@
     border-radius: 20px;
   }
   
+  .boton-ice:hover {
+    background-color: rgb(40, 238, 248);
+  }
+
+  .boton-ice:active {
+    transform: scale(0.9);
+  }
+
   .boton-fighting {
     text-decoration: none;
     font-weight: 600;
@@ -115,6 +172,14 @@
     padding: 10px 20px;
     background-color: #C22E28;
     border-radius: 20px;
+  }
+
+  .boton-fighting:hover {
+    background-color: rgb(157, 21, 21);
+  }
+
+  .boton-fighting:active {
+    transform: scale(0.9);
   }
   
   .boton-poison {
@@ -126,7 +191,15 @@
     background-color: #A33EA1;
     border-radius: 20px;
   }
-  
+
+  .boton-poison:hover {
+    background-color: rgb(147, 12, 138);
+  }
+
+  .boton-poison:active {
+    transform: scale(0.9);
+  }
+
   .boton-ground {
     text-decoration: none;
     font-weight: 600;
@@ -136,7 +209,15 @@
     background-color: #E2BF65;
     border-radius: 20px;
   }
-  
+
+  .boton-ground:hover {
+    background-color: rgb(185, 145, 25);
+  }
+
+  .boton-ground:active {
+    transform: scale(0.9);
+  }
+
   .boton-flying {
     text-decoration: none;
     font-weight: 600;
@@ -147,6 +228,14 @@
     border-radius: 20px;
   }
   
+  .boton-flying:hover {
+    background-color: rgb(145, 58, 245);
+  }
+
+  .boton-flying:active {
+    transform: scale(0.9);
+  }
+
   .boton-psychic {
     text-decoration: none;
     font-weight: 600;
@@ -157,6 +246,14 @@
     border-radius: 20px;
   }
   
+  .boton-psychic:hover {
+    background-color: rgb(234, 25, 105);
+  }
+
+  .boton-psychic:active {
+    transform: scale(0.9);
+  }
+
   .boton-bug {
     text-decoration: none;
     font-weight: 600;
@@ -167,6 +264,14 @@
     border-radius: 20px;
   }
   
+  .boton-bug:hover {
+    background-color: rgb(127, 161, 13);
+  }
+
+  .boton-bug:active {
+    transform: scale(0.9);
+  }
+
   .boton-rock {
     text-decoration: none;
     font-weight: 600;
@@ -175,6 +280,14 @@
     padding: 10px 20px;
     background-color: #B6A136;
     border-radius: 20px;
+  }
+
+  .boton-rock:hover {
+    background-color: rgb(154, 112, 35);
+  }
+
+  .boton-rock:active {
+    transform: scale(0.9);
   }
   
   .boton-ghost {
@@ -187,6 +300,14 @@
     border-radius: 20px;
   }
   
+  .boton-ghost:hover {
+    background-color: rgb(91, 44, 114);
+  }
+
+  .boton-ghost:active {
+    transform: scale(0.9);
+  }
+  
   .boton-dragon {
     text-decoration: none;
     font-weight: 600;
@@ -195,6 +316,14 @@
     padding: 10px 20px;
     background-color: #6F35FC;
     border-radius: 20px;
+  }
+
+  .boton-dragon:hover {
+    background-color: rgb(73, 30, 172);
+  }
+
+  .boton-dragon:active {
+    transform: scale(0.9);
   }
   
   .boton-dark {
@@ -206,6 +335,15 @@
     background-color: #705746;
     border-radius: 20px;
   }
+
+  .boton-rock:hover {
+    background-color: rgb(154, 112, 35);
+  }
+
+  .boton-rock:active {
+    transform: scale(0.9);
+  }
+  
   
   .boton-steel {
     text-decoration: none;
@@ -217,6 +355,14 @@
     border-radius: 20px;
   }
   
+  .boton-steel:hover {
+    background-color: rgb(138, 130, 150);
+  }
+
+  .boton-steel:active {
+    transform: scale(0.9);
+  }
+  
   .boton-fairy {
     text-decoration: none;
     font-weight: 600;
@@ -226,30 +372,82 @@
     background-color: #D685AD;
     border-radius: 20px;
   }
+
+  .boton-fairy:hover {
+    background-color: rgb(181, 108, 142);
+  }
+
+  .boton-fairy:active {
+    transform: scale(0.9);
+  }
+  
   .boton-generation {
     text-decoration: none;
     font-weight: 600;
     font-size: 16px;
     color: #ffffff;
     padding: 10px 20px;
-    background-color: #700000;
+    background-color: #9d0202;
     border-radius: 20px;
   }
   
+  .boton-generation:hover {
+    background-color: rgb(114, 1, 1);
+  }
 
+  .boton-generation:active {
+    transform: scale(0.9);
+  }
+  
   .container {
     position: relative;
   }
 
-  .search{
-    width: 350px;
-    padding: 10px;
-    padding-right: 35px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    outline: none;
-    font-size: 1rem;
+  
+  .search:hover {
+    color: #666;
+
   }
+  
+  .search:focus::before {
+    color: #4c89af;
+  }
+
+  .search:focus {
+    border-color: rgba(250, 254, 2, 0.993); 
+    box-shadow: 0 0 5px rgb(8, 82, 255);
+    transform: scale(1.05); 
+  }
+  
+  .search::placeholder {
+    color: #696868; 
+    transition: color 0.3s ease, transform 0.3s ease; 
+  }
+  
+  
+  .search:hover::placeholder {
+    color: #323232; 
+    transform: translateX(3px); 
+  }
+
+.pokemon-card {
+  transition: transform 0.3s ease; 
+}
+
+.pokemon-card:hover {
+  transform: scale(1.05); 
+}
+
+
+.pokemon-card img {
+  transition: transform 0.3s ease; 
+}
+
+
+.pokemon-card:hover img {
+  transform: scale(1.1); 
+}
+
 
   .boton-normal:active,
 .boton-fire:active,

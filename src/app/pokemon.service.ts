@@ -20,6 +20,11 @@ export class PokemonService {
     return this.http.get(url);
   }
 
+  filtergen(gen: string) {
+    const url = `${this.pokeapi}?limit=${gen}`;
+    return this.http.get(url);
+  }
+
   getPokemonTypes(pokemonNameOrId: string): Observable<string[]> {
     const url = `${this.pokeapi}${pokemonNameOrId}`;
     return this.http.get(url).pipe(

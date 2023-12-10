@@ -1,3 +1,7 @@
+<audio autoplay class="Audio" [src]="Audio">
+  <source type="audio/mpeg">
+</audio>
+
 <div class="pokemon-head">
   <a href="/">
     <h1><img src="../../assets/images/pokedex.png" alt="Pokédex"></h1>
@@ -141,15 +145,24 @@
       <th>Movimiento</th>
       <th>Nivel Aprendido</th>
       <th>Método de Aprendizaje</th>
+      <th>Tipo</th>
+      <th>Categoría</th>
+      <th>Potencia</th>
+      <th>Precisión</th>
     </tr>
   </thead>
   <tbody>
     <ng-container *ngFor="let move of pokemonDetails?.moves">
       <ng-container *ngIf="move.version_group_details[0].move_learn_method.name === 'level-up'">
         <tr>
-          <td>{{ move.move.name }}</td>
+          <td>{{ move.move.id }}</td>
           <td>{{ move.version_group_details[0].level_learned_at }}</td>
           <td>{{ move.version_group_details[0].move_learn_method.name }}</td>
+          <!-- Suponiendo que los detalles del movimiento están disponibles -->
+          <td>{{ move.move.type }}</td>
+          <td>{{ move.move.category }}</td>
+          <td>{{ move.move.power }}</td>
+          <td>{{ move.move.accuracy }}</td>
         </tr>
       </ng-container>
     </ng-container>
@@ -169,6 +182,7 @@
         <tr>
           <td>{{ move.move.name }}</td>
           <td>{{ move.version_group_details[0].move_learn_method.name }}</td>
+          <td>{{ move.version_group_details[0].accuracy }}</td>
         </tr>
       </ng-container>
     </ng-container>

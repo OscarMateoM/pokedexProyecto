@@ -1,31 +1,33 @@
-
+<audio autoplay class="Audio">
+  <source [src]="Audio" type="audio/mpeg">
+</audio>
 <div class="pokemon-head"> <h1><img src="../../assets/images/pokedex.png" alt="Pokédex"></h1> </div>
 <div class="container">
   <input class="search" type="text" placeholder="Buscar Pokémon..." [(ngModel)]="searchTerm" (input)="onSearch()" style="display: flex;">
   <br>
   <br>
-  <button (click)="filterByType('normal')"class="boton-normal">Normal</button>
-  <button (click)="filterByType('fire')" class="boton-fire">Fuego</button>
-  <button (click)="filterByType('water')" class="boton-water">Agua</button>
-  <button (click)="filterByType('grass')" class="boton-grass">Planta</button>
-  <button (click)="filterByType('bug')" class="boton-bug">Bicho</button>
-  <button (click)="filterByType('dragon')" class="boton-dragon">Dragon</button>
-  <button (click)="filterByType('electric')" class="boton-electric">Electrico</button>
-  <button (click)="filterByType('fairy')" class="boton-fairy">Hada</button>
-  <button (click)="filterByType('ground')" class="boton-ground">Tierra</button>
-  <button (click)="filterByType('rock')" class="boton-rock">Roca</button>
-  <button (click)="filterByType('steel')" class="boton-steel">Acero</button>
-  <button (click)="filterByType('ice')" class="boton-ice">Hielo</button>
-  <button (click)="filterByType('flying')" class="boton-flying">Volador</button>
-  <button (click)="filterByType('dark')" class="boton-dark">Siniestro</button>
-  <button (click)="filterByType('ghost')" class="boton-ghost">Fantasma</button>
-  <button (click)="filterByType('fighting')" class="boton-fighting">Lucha</button>
-  <button (click)="filterByType('poison')" class="boton-poison">Veneno</button>
-  <button (click)="filterByType('psychic')" class="boton-psychic">Psiquico</button>  
-  <button (click)="filterByGeneration(1)"class="boton-generation">Gen 1</button>
-  <button (click)="filterByGeneration(2)"class="boton-generation">Gen 2</button>
-  <button (click)="filterByGeneration(3)"class="boton-generation">Gen 3</button>
-  <button (click)="filterByGeneration(4)"class="boton-generation">Gen 4</button>
+  <input type="button" (click)="filterByType('normal')"class="boton-normal" value="Normal">
+  <input type="button" (click)="filterByType('fire')" class="boton-fire" value="Fuego">
+  <input type="button" (click)="filterByType('water')" class="boton-water" value="Agua">
+  <input type="button" (click)="filterByType('grass')" class="boton-grass" value="Planta">
+  <input type="button" (click)="filterByType('bug')" class="boton-bug" value="Bicho">
+  <input type="button" (click)="filterByType('dragon')" class="boton-dragon" value="Dragon">
+  <input type="button" (click)="filterByType('electric')" class="boton-electric" value="Eléctrico">
+  <input type="button" (click)="filterByType('fairy')" class="boton-fairy"  value="Hada">
+  <input type="button" (click)="filterByType('ground')" class="boton-ground" value="Tierra">
+  <input type="button" (click)="filterByType('rock')" class="boton-rock" value="Roca">
+  <input type="button" (click)="filterByType('steel')" class="boton-steel" value="Acero">
+  <input type="button" (click)="filterByType('ice')" class="boton-ice" value="Hielo">
+  <input type="button" (click)="filterByType('flying')" class="boton-flying" value="Volador">
+  <input type="button" (click)="filterByType('dark')" class="boton-dark" value="Siniestro">
+  <input type="button" (click)="filterByType('ghost')" class="boton-ghost" value="Fantasma">
+  <input type="button" (click)="filterByType('fighting')" class="boton-fighting" value="Lucha">
+  <input type="button" (click)="filterByType('poison')" class="boton-poison" value="Veneno">
+  <input type="button" (click)="filterByType('psychic')" class="boton-psychic" value="Psíquico">
+  <input type="button" (click)="filterByGeneration(1)"class="boton-generation" value="Gen 1">
+  <input type="button" (click)="filterByGeneration(2)"class="boton-generation" value="Gen 2">
+  <input type="button" (click)="filterByGeneration(3)"class="boton-generation" value="Gen 3">
+  <input type="button" (click)="filterByGeneration(4)"class="boton-generation" value="Gen 4">
 </div>
 
 <div class="pokemon-grid">
