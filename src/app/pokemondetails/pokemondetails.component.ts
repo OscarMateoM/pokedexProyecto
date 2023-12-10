@@ -14,6 +14,7 @@ export class PokemonDetailsComponent implements OnInit {
   private _pokemonDescription: any;
   private _typeEffectiveness: any;
   private _evolutionChain: any;
+  Audio: string = 'assets/audios/PokemonComponents.mp3';
 
 
   typeImageMappings: { [key: string]: string } = {
@@ -57,12 +58,38 @@ export class PokemonDetailsComponent implements OnInit {
           this._pokemonTypes = pokemonTypes;
           this._typeEffectiveness = typeEffectiveness;
           this._evolutionChain = evolutionChain;
+          const generation = this.getGenerationFromDetails(pokemonDetails);
+
+ 
         }
       );
-
+        
       this.getPokemonDescription(pokemonId);
     });
   }
+  getGenerationFromDetails(pokemonDetails: any): number {
+    if (pokemonDetails && pokemonDetails.generation) {
+      return pokemonDetails.generation;
+    }
+  
+    if (pokemonDetails && pokemonDetails.name) {
+      const name = pokemonDetails.name.toLowerCase();
+      if (name.includes('pikachu')) {
+        return 1;
+      }
+    }
+  
+    if (pokemonDetails && pokemonDetails.abilities) {
+      const abilities = pokemonDetails.abilities.map((ability: any) => ability.name.toLowerCase());
+      if (abilities.includes('adaptability')) {
+        return 2;
+      }
+    }
+  
+    return 0;
+  }
+  
+  
   
   getPokemonDetails(pokemonId: number) {
     this.pokemonService.getPokemonDetailsById(pokemonId).subscribe(

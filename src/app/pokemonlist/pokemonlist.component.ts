@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { PokemonService } from '../pokemon.service';
 import { forkJoin } from 'rxjs';
 import { Router } from '@angular/router';
@@ -15,7 +15,7 @@ export class PokemonlistComponent implements OnInit {
   public searchTerm: string = '';
   public filteredPokemonList: any[] = [];
   selectedTypes: string[] = [];
-  
+  Audio: string = 'assets/audios/PokemonTheme.mp3';
 
   typeImageMappings: { [key: string]: string } = {
     normal: '../../assets/images/normal.png',

@@ -19,6 +19,7 @@
     background-image: url(../../assets/images/pokedex_fondo.jpg);
     background-size: cover;
     border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
   }
   .sprite-grid {
     position: relative;
@@ -32,6 +33,12 @@
     opacity: 0;
     transition: opacity 0.3s ease;
   }
+ 
+  
+  .image-grid:hover {
+    transform: translateX(-20px); 
+  }
+  
   
   .image-grid:hover .shiny-image {
     opacity: 1; 
