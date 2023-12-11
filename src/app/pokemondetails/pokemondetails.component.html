@@ -1,10 +1,7 @@
 <body [style.background-color]="fondoNegro ? 'rgb(31,30,30)' : (fondoBlanco ? 'white' : 'transparent')"
 [style.color]="fondoNegro ? 'white': 'black'">
-<button (click)="activarFondoNegro()">
-  <img src="assets/images/luxuryball.png" style="width: 20px; height: 20px;">
-</button>
-<button (click)="activarFondoBlanco()">
-  <img src="assets/images/honorball.png" style="width: 20px; height: 20px;">
+  <button (click)="activarFondoNegro()"><img src="assets/images/luxuryball.png" style="width: 30px; height: 30px;"></button>
+  <button (click)="activarFondoBlanco()"><img src="assets/images/honorball.png" style="width: 30px; height: 30px;" ></button>
 
 <audio autoplay class="Audio" [src]="Audio">
 <source type="audio/mpeg">
