@@ -4,7 +4,7 @@
 
 <div class="pokemon-head">
   <a href="/">
-    <h1><img src="/assets/images/pokedex.png" alt="Pokédex"></h1>
+    <h1><img src="assets/images/pokedex.png" alt="Pokédex"></h1>
   </a>
 </div>
 <body>
@@ -154,11 +154,6 @@
           <td>{{ move.move.name }}</td>
           <td>{{ move.version_group_details[0].level_learned_at }}</td>
           <td>{{ move.version_group_details[0].move_learn_method.name }}</td>
-          <!-- Suponiendo que los detalles del movimiento están disponibles -->
-          <td>{{ move.move.type }}</td>
-          <td>{{ move.move.category }}</td>
-          <td>{{ move.move.power }}</td>
-          <td>{{ move.move.accuracy }}</td>
         </tr>
       </ng-container>
     </ng-container>
