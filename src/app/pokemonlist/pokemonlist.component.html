@@ -1,7 +1,8 @@
 <audio autoplay class="Audio">
   <source [src]="Audio" type="audio/mpeg">
 </audio>
-<body [style.background-color]="fondoNegro ? 'black' : (fondoBlanco ? 'white' : 'transparent')">
+<body [style.background-color]="fondoNegro ? 'rgb(31,30,30)' : (fondoBlanco ? 'white' : 'transparent')"
+[style.color]="fondoNegro ? 'white': 'black'">
   <button (click)="activarFondoNegro()">Fondo Negro</button>
   <button (click)="activarFondoBlanco()">Fondo Blanco</button>
 
