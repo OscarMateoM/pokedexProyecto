@@ -1,13 +1,20 @@
+<body [style.background-color]="fondoNegro ? 'rgb(31,30,30)' : (fondoBlanco ? 'white' : 'transparent')"
+[style.color]="fondoNegro ? 'white': 'black'">
+  <button (click)="activarFondoNegro()">Fondo Negro</button>
+  <button (click)="activarFondoBlanco()">Fondo Blanco</button>
+
 <audio autoplay class="Audio" [src]="Audio">
   <source type="audio/mpeg">
 </audio>
+
+<button (click)="toggleDarkMode()" [class.dark-mode]="isDarkMode">Modo {{ isDarkMode ? 'Claro' : 'Oscuro' }}</button>
 
 <div class="pokemon-head">
   <a href="/">
     <h1><img src="../../assets/images/pokedex.png" alt="Pokédex"></h1>
   </a>
 </div>
-<body>
+
 <div class="container">
   <div class="image-grid">
     <img class="main-image" [src]="pokemonDetails?.sprites?.other['official-artwork']?.front_default" alt="Imagen principal">
@@ -22,7 +29,7 @@
     <img class="shiny-sprite" [src]="pokemonDetails?.sprites?.versions['generation-v']['black-white'].animated.front_shiny
     " alt="shinysprite">
   </div>
-
+  
     <div class="type-images-container">
       <ng-container *ngFor="let type of pokemonTypes">
         <img [src]="typeImageMappings[type]" alt="{{ type }}" class="type-image">
@@ -141,13 +148,14 @@
 </div>
 <table class="move-list">
   <thead>
+    <h3>Tabla de movimientos</h3>
     <tr>
       <th>Movimiento</th>
-      <th>Nivel Aprendido</th>
-      <th>Método de Aprendizaje</th>
+      <th>Nivel</th>
+      <th>Método de Aprendizaje </th>
     </tr>
   </thead>
-  <tbody>
+  
     <ng-container *ngFor="let move of pokemonDetails?.moves">
       <ng-container *ngIf="move.version_group_details[0].move_learn_method.name === 'level-up'">
         <tr>
@@ -155,14 +163,16 @@
           <td>{{ move.version_group_details[0].level_learned_at }}</td>
           <td>{{ move.version_group_details[0].move_learn_method.name }}</td>
           <!-- Suponiendo que los detalles del movimiento están disponibles -->
-          <td>{{ move.move.type }}</td>
-          <td>{{ move.move.category }}</td>
-          <td>{{ move.move.power }}</td>
-          <td>{{ move.move.accuracy }}</td>
+          <td>{{ move.move.type ? move.move.type.name : 'No Type' }}</td>
+   <td>{{ move.move.category ? move.move.category.name : 'No Category' }}</td>
+    <td>{{ move.move.power ? move.move.power : 'No Power' }}</td>
+    <td>{{ move.move.accuracy ? move.move.accuracy : 'No Accuracy' }}</td>
+
+          
         </tr>
       </ng-container>
     </ng-container>
-  </tbody>
+  
 </table>
 
 <table class="move-list">
@@ -172,7 +182,7 @@
       <th>Máquina</th>
     </tr>
   </thead>
-  <tbody>
+  
     <ng-container *ngFor="let move of pokemonDetails?.moves">
       <ng-container *ngIf="move.version_group_details[0].move_learn_method.name === 'machine'">
         <tr>
@@ -182,6 +192,6 @@
         </tr>
       </ng-container>
     </ng-container>
-  </tbody>
+  
 </table>
 </body>

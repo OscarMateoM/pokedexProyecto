@@ -1,10 +1,26 @@
 .pokemon-head {
     text-align: center;
   }
+
  h3 {
   font-family: 'PokemonSolid';
   text-transform: capitalize;
   letter-spacing: 4px;
+  color: yellow;
+  text-shadow: -1px -1px 0 blue, 1px -1px 0 blue, -1px 1px 0 blue, 1px 1px 0 blue;
+  padding: 5px;
+ }
+ td {
+  font-family: 'PokemonSolid';
+  text-transform: capitalize;
+  letter-spacing: 4px;
+  padding: 5px;
+ }
+ th {
+  font-family: 'PokemonSolid';
+  text-transform: capitalize;
+  letter-spacing: 4px;
+  padding: 5px;
  }
   .pokemon-details {
     font-family: 'PokemonSolid';
@@ -19,7 +35,7 @@
     background-image: url(../../assets/images/pokedex_fondo.jpg);
     background-size: cover;
     border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease;
   }
   .sprite-grid {
     position: relative;
@@ -33,13 +49,9 @@
     opacity: 0;
     transition: opacity 0.3s ease;
   }
- 
-  
-  .image-grid:hover {
-    transform: translateX(-20px); 
+  .image-grid:hover{
+    transform: scale(1.02);
   }
-  
-  
   .image-grid:hover .shiny-image {
     opacity: 1; 
   }
@@ -161,31 +173,42 @@ ul {
   padding: 0;
   margin: 0; 
 }
-.evolution-line {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.evolution-container {
+display: inline-block;
+  margin-right: 100px;
+  padding: 15px;
 }
 
-.evolution-column {
-  flex: 1;
-}
-
-.evolution-item {
-  text-align: center;
-  margin-bottom: 10px;
-}
-.firstevo-text,
-.intermediateevo-text,
-.finalevo-text {
-  font-family: 'PokemonSolid';
-  text-transform: capitalize;
-  display: block;
-  margin-top: 5px;
-}
 .evolution-trigger{
   font-family: 'PokemonSolid';
   text-transform: capitalize;
-  background-color: #effa58;
-  border-radius: 20px;
+  letter-spacing: 2px;
+  position: relative;
+  background-color: #F7D358;
+  background-size: cover;
+  text-align: center;
+  border-radius: 15px;
+  top: -100px;
+  height: 500px;
+  width: 500px;
 }
+
+.firstevo-text{
+  font-family: 'PokemonSolid';
+  text-transform: capitalize;
+  margin-left: -10px;
+}
+.intermediateevo-text{
+  font-family: 'PokemonSolid';
+  text-transform: capitalize;
+  margin-left: -10px;
+}
+.finalevo-text{
+  font-family: 'PokemonSolid';
+  text-transform: capitalize;
+  margin-left: -10px;
+}
+
+
+  
+

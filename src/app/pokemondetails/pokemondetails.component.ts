@@ -15,6 +15,9 @@ export class PokemonDetailsComponent implements OnInit {
   private _typeEffectiveness: any;
   private _evolutionChain: any;
   Audio: string = 'assets/audios/PokemonComponents.mp3';
+  isDarkMode: boolean = false;
+  fondoNegro: boolean = false;
+  fondoBlanco: boolean = false;
 
 
   typeImageMappings: { [key: string]: string } = {
@@ -66,6 +69,25 @@ export class PokemonDetailsComponent implements OnInit {
         
       this.getPokemonDescription(pokemonId);
     });
+  }
+  toggleDarkMode(): void {
+    this.isDarkMode = !this.isDarkMode;
+    // Puedes agregar lógica adicional para cambiar otros elementos de tu aplicación en el modo oscuro.
+    const body = document.querySelector('body');
+    if (this.isDarkMode) {
+      body?.classList.add('dark-mode');
+    } else {
+      body?.classList.remove('dark-mode');
+    }
+  }
+  activarFondoNegro() {
+    this.fondoNegro = true;
+    this.fondoBlanco = false;
+  }
+
+  activarFondoBlanco() {
+    this.fondoNegro = false;
+    this.fondoBlanco = true;
   }
   getGenerationFromDetails(pokemonDetails: any): number {
     if (pokemonDetails && pokemonDetails.generation) {

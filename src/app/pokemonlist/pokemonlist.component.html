@@ -1,6 +1,10 @@
 <audio autoplay class="Audio">
   <source [src]="Audio" type="audio/mpeg">
 </audio>
+<body [style.background-color]="fondoNegro ? 'black' : (fondoBlanco ? 'white' : 'transparent')">
+  <button (click)="activarFondoNegro()">Fondo Negro</button>
+  <button (click)="activarFondoBlanco()">Fondo Blanco</button>
+
 <div class="pokemon-head"> <h1><img src="../../assets/images/pokedex.png" alt="Pokédex"></h1> </div>
 <div class="container">
   <input class="search" type="text" placeholder="Buscar Pokémon..." [(ngModel)]="searchTerm" (input)="onSearch()" style="display: flex;">
@@ -28,6 +32,7 @@
   <input type="button" (click)="filterByGeneration(2)"class="boton-generation" value="Gen 2">
   <input type="button" (click)="filterByGeneration(3)"class="boton-generation" value="Gen 3">
   <input type="button" (click)="filterByGeneration(4)"class="boton-generation" value="Gen 4">
+  
 </div>
 
 <div class="pokemon-grid">
@@ -45,6 +50,6 @@
   </div>
 </div>
 
-
+</body>
 
   
