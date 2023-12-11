@@ -9,7 +9,7 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class PokemonService {
   private pokeapi = 'https://pokeapi.co/api/v2/pokemon/';
-  private pokemonIdUrl = '/assets/pokemon-id.json';
+  private pokemonIdUrl = 'assets/pokemon-id.json';
   private pokemonList: { [key: string]: number } = {};
   constructor(private http: HttpClient) {
     this.loadPokemonData();
