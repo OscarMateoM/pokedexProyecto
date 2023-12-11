@@ -3,8 +3,11 @@
 </audio>
 <body [style.background-color]="fondoNegro ? 'rgb(31,30,30)' : (fondoBlanco ? 'white' : 'transparent')"
 [style.color]="fondoNegro ? 'white': 'black'">
-  <button (click)="activarFondoNegro()"><img src="assets/images/luxuryball.png" ></button>
-  <button (click)="activarFondoBlanco()"><img src="assets/images/honorball.png" ></button>
+<button (click)="activarFondoNegro()">
+  <img src="assets/images/luxuryball.png" style="width: 20px; height: 20px;">
+</button>
+<button (click)="activarFondoBlanco()">
+  <img src="assets/images/honorball.png" style="width: 20px; height: 20px;">
 
 <div class="pokemon-head"> <h1><img src="assets/images/pokedex.png" alt="Pokédex"></h1> </div>
 <div class="container">
