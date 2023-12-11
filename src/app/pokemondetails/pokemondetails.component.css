@@ -194,3 +194,10 @@ ul {
   text-transform: capitalize;
   letter-spacing: 4px;
 }
+.fondo-negro {
+  background-color: black;
+}
+
+.fondo-blanco {
+  background-color: white;
+}

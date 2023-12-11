@@ -16,6 +16,8 @@ export class PokemonlistComponent implements OnInit {
   public filteredPokemonList: any[] = [];
   selectedTypes: string[] = [];
   Audio: string = 'assets/audios/PokemonTheme.mp3';
+  fondoNegro: boolean = false;
+  fondoBlanco: boolean = false;
 
   typeImageMappings: { [key: string]: string } = {
     normal: 'assets/images/normal.png',
@@ -150,6 +152,14 @@ export class PokemonlistComponent implements OnInit {
     const pokemonId = this.getPokemonId(pokemon.url);
     this.router.navigate(['/pokemon', pokemonId]);
   }
+  activarFondoNegro() {
+    this.fondoNegro = true;
+    this.fondoBlanco = false;
+  }
 
+  activarFondoBlanco() {
+    this.fondoNegro = false;
+    this.fondoBlanco = true;
+  }
 }
 

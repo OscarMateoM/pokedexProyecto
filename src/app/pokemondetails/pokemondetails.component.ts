@@ -15,6 +15,8 @@ export class PokemonDetailsComponent implements OnInit {
   private _typeEffectiveness: any;
   private _evolutionChain: any;
   Audio: string = 'assets/audios/PokemonComponents.mp3';
+  fondoNegro: boolean = false;
+  fondoBlanco: boolean = false;
 
 
   typeImageMappings: { [key: string]: string } = {
@@ -265,6 +267,15 @@ getEvolutionStats(evolution: any): string {
 
 getPokemonId(pokemonName: string): number | undefined {
   return this.pokemonService.getPokemonId(pokemonName);
+}
+activarFondoNegro() {
+  this.fondoNegro = true;
+  this.fondoBlanco = false;
+}
+
+activarFondoBlanco() {
+  this.fondoNegro = false;
+  this.fondoBlanco = true;
 }
 }
 
