@@ -139,23 +139,19 @@
     </div>
   </div>
 </div>
-<table>
+<table class="move-list">
   <thead>
     <tr>
       <th>Movimiento</th>
       <th>Nivel Aprendido</th>
       <th>Método de Aprendizaje</th>
-      <th>Tipo</th>
-      <th>Categoría</th>
-      <th>Potencia</th>
-      <th>Precisión</th>
     </tr>
   </thead>
   <tbody>
     <ng-container *ngFor="let move of pokemonDetails?.moves">
       <ng-container *ngIf="move.version_group_details[0].move_learn_method.name === 'level-up'">
         <tr>
-          <td>{{ move.move.id }}</td>
+          <td>{{ move.move.name }}</td>
           <td>{{ move.version_group_details[0].level_learned_at }}</td>
           <td>{{ move.version_group_details[0].move_learn_method.name }}</td>
           <!-- Suponiendo que los detalles del movimiento están disponibles -->
@@ -169,7 +165,7 @@
   </tbody>
 </table>
 
-<table>
+<table class="move-list">
   <thead>
     <tr>
       <th>Movimiento</th>
