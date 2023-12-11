@@ -91,9 +91,6 @@ private loadPokemonData() {
     (data) => {
       this.pokemonList = data;
       console.log('Pokemon data loaded successfully:', data);
-    },
-    (error) => {
-      console.error('Error loading Pokemon data:', error);
     }
   );
 }
