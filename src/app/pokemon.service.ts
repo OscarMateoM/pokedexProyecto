@@ -9,7 +9,7 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class PokemonService {
   private pokeapi = 'https://pokeapi.co/api/v2/pokemon/';
-  private pokemonIdUrl = '../assets/pokemon-id.json';
+  private pokemonIdUrl = '/assets/pokemon-id.json';
   private pokemonList: { [key: string]: number } = {};
   constructor(private http: HttpClient) {
     this.loadPokemonData();
@@ -83,7 +83,7 @@ getEvolutionChain(pokemonId: number): Observable<any> {
   );
 }
 getPokemonIdByName(name: string): Observable<number> {
-  const url = '../assets/pokemon-id.json';
+  const url = 'assets/pokemon-id.json';
   return this.http.get<number>(url);
 }
 private loadPokemonData() {

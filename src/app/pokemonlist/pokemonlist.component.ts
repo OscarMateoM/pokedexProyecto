@@ -18,9 +18,9 @@ export class PokemonlistComponent implements OnInit {
   Audio: string = 'assets/audios/PokemonTheme.mp3';
 
   typeImageMappings: { [key: string]: string } = {
-    normal: './assets/images/normal.png',
-    fire: './assets/images/fuego.png',
-    water: './assets/images/agua.png',
+    normal: 'assets/images/normal.png',
+    fire: 'assets/images/fuego.png',
+    water: 'assets/images/agua.png',
     steel: 'assets/images/acero.png',
     bug: 'assets/images/bicho.png',
     dragon: 'assets/images/dragon.png',
