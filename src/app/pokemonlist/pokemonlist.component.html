@@ -1,11 +1,12 @@
 <audio autoplay class="Audio">
   <source [src]="Audio" type="audio/mpeg">
 </audio>
+<body [style.background-color]="fondoNegro ? 'rgb(31,30,30)' : (fondoBlanco ? 'white' : 'transparent')"
+[style.color]="fondoNegro ? 'white': 'black'">
+  <button (click)="activarFondoNegro()"><img src="assets/images/luxuryball.png" ></button>
+  <button (click)="activarFondoBlanco()"><img src="assets/images/honorball.png" ></button>
+
 <div class="pokemon-head"> <h1><img src="assets/images/pokedex.png" alt="Pokédex"></h1> </div>
-<div [style.background-color]="fondoNegro ? 'black' : (fondoBlanco ? 'white' : 'transparent')">
-  <button (click)="activarFondoNegro()">Fondo Negro</button>
-  <button (click)="activarFondoBlanco()">Fondo Blanco</button>
-</div>
 <div class="container">
   <input class="search" type="text" placeholder="Buscar Pokémon..." [(ngModel)]="searchTerm" (input)="onSearch()" style="display: flex;">
   <br>
@@ -48,7 +49,7 @@
     </a>
   </div>
 </div>
-
+</body>
 
 
   

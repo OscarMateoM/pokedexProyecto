@@ -1,5 +1,10 @@
+<body [style.background-color]="fondoNegro ? 'rgb(31,30,30)' : (fondoBlanco ? 'white' : 'transparent')"
+[style.color]="fondoNegro ? 'white': 'black'">
+  <button (click)="activarFondoNegro()">Fondo Negro</button>
+  <button (click)="activarFondoBlanco()">Fondo Blanco</button>
+
 <audio autoplay class="Audio" [src]="Audio">
-  <source type="audio/mpeg">
+<source type="audio/mpeg">
 </audio>
 
 <div class="pokemon-head">
@@ -7,11 +12,6 @@
     <h1><img src="assets/images/pokedex.png" alt="Pokédex"></h1>
   </a>
 </div>
-<div [style.background-color]="fondoNegro ? 'black' : (fondoBlanco ? 'white' : 'transparent')">
-  <button (click)="activarFondoNegro()">Fondo Negro</button>
-  <button (click)="activarFondoBlanco()">Fondo Blanco</button>
-</div>
-<body>
 <div class="container">
   <div class="image-grid">
     <img class="main-image" [src]="pokemonDetails?.sprites?.other['official-artwork']?.front_default" alt="Imagen principal">
