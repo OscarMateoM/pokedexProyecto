@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1702310667831,
+  "timestamp": 1702311330577,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main.c0ababdc96dac67f.js",
+        "/main.1346e123b7dddbe3.js",
         "/manifest.webmanifest",
         "/polyfills.7a334b6cdcaa2515.js",
         "/runtime.091769b3e6325dd0.js",
@@ -120,9 +120,9 @@
     "/assets/pokemon-id.json": "7c776b6ad9e1241e83b27e95c565c438a840146f",
     "/assets/type-effectiveness.json": "913af9c11f38cfac8758cd21a962bbe1376772af",
     "/favicon.ico": "7a785549c9f55d054112f85aa199c958669b7281",
-    "/index.html": "76ce47f13a76b3fd1ab92e7a979ea853bcd305c1",
+    "/index.html": "de0ef2b4fff7077ae6dca080df503b76fc48e5ad",
     "/lupa.9cdc7abce4a4a6c4.png": "68ac61373be4599341ea828e85897dc2748602c4",
-    "/main.c0ababdc96dac67f.js": "28d9f989d8115a80e21c69dec5ad34e1fe9d4d20",
+    "/main.1346e123b7dddbe3.js": "873d030928a6d4d76037de43d82290577472cb89",
     "/manifest.webmanifest": "e3e36501aab6ae70302508e7d9bdf2b0e9a6f31a",
     "/pokedex_fondo.4627d29b410044a1.jpg": "612ba6dc6e1c713d12419180523f37281842644e",
     "/pokemon Hollow.7ad25a8b081d8fa2.ttf": "0d9951d3380b31319e2de9546dfd96a399b56f71",
